@@ -30,8 +30,8 @@ export default function AboutPage() {
         <OriginDirectiveSection />
       </main>
 
-      {/* 3. Footer (White Background on About Page) */}
-      <FooterSection onTalkToUs={() => handleOpenContact()} theme="light" />
+      {/* 3. Footer (Black Background with Final CTA) */}
+      <FooterSection onTalkToUs={handleOpenContact} theme="dark" />
 
       {/* Contact Modal */}
       <ContactModal

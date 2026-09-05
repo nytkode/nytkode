@@ -3,9 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NytKodeLogo } from "./NytKodeLogo";
 import { ArrowUpRightIcon, GithubIcon, TwitterIcon, LinkedinIcon } from "./Icons";
+import { useCalendly } from "@/context/CalendlyContext";
+import { FinalCTASection } from "./FinalCTASection";
 
 interface FooterSectionProps {
-  onTalkToUs?: () => void;
+  onTalkToUs?: (subject?: string) => void;
   theme?: "light" | "dark";
 }
 
@@ -13,6 +15,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
   onTalkToUs,
   theme = "dark",
 }) => {
+  const { openCalendly } = useCalendly();
   const [isWordmarkInView, setIsWordmarkInView] = useState<boolean>(false);
   const wordmarkRef = useRef<HTMLDivElement>(null);
   const isLight = theme === "light";
@@ -40,11 +43,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
       data-theme={theme}
       className={`${
         isLight
-          ? "bg-white text-neutral-600 border-t border-neutral-200"
-          : "bg-black text-neutral-400 border-t border-neutral-800"
-      } pt-20 sm:pt-28 pb-12 text-xs font-sans relative overflow-hidden`}
+          ? "bg-white text-neutral-600"
+          : "bg-black text-neutral-400"
+      } pb-12 text-xs font-sans relative overflow-hidden`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. Final CTA Section at top of footer */}
+      <FinalCTASection onTalkToUs={onTalkToUs} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16">
         {/* Top Content Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 pb-16 sm:pb-24">
           {/* Column 1: Brand Emblem & Social Media (Left 3 cols) */}
@@ -63,7 +69,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             {/* Social Icons Row */}
             <div className="flex items-center gap-3.5 pt-1 sm:pt-2 ml-7">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -208,15 +214,12 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 </a>
               </li>
               <li>
-                <a
-                  href="https://calendly.com/nytkode/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors inline-flex items-center gap-1.5 uppercase`}
+                <button
+                  onClick={() => openCalendly()}
+                  className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors inline-flex items-center gap-1.5 uppercase cursor-pointer`}
                 >
                   <span>Book a Call</span>
-                  <ArrowUpRightIcon className={`w-3 h-3 ${isLight ? "text-neutral-400" : "text-neutral-500"}`} />
-                </a>
+                </button>
               </li>
             </ul>
           </div>

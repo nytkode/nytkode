@@ -6,7 +6,7 @@ import { LinkedinIcon, TwitterIcon, InstagramIcon } from "./Icons";
 
 export const OriginDirectiveSection: React.FC = () => {
   return (
-    <section id="about" data-theme="dark" className="bg-black text-white py-36 sm:py-48 lg:py-56 border-b border-neutral-800 relative overflow-hidden">
+    <section id="about" data-theme="dark" className="bg-black text-white py-36 sm:py-48 lg:py-56 relative overflow-hidden">
       {/* Ambient Depth Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[750px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_70%)] pointer-events-none" />
 

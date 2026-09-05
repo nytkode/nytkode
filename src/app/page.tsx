@@ -9,7 +9,6 @@ import { WhatWeBuildSection } from "@/components/WhatWeBuildSection";
 import { MegaProductShowcase } from "@/components/MegaProductShowcase";
 import { CommunitySection } from "@/components/CommunitySection";
 import { HowWeWorkSection } from "@/components/HowWeWorkSection";
-import { FinalCTASection } from "@/components/FinalCTASection";
 import { FooterSection } from "@/components/FooterSection";
 import { ContactModal } from "@/components/ContactModal";
 import { CaseStudyModal } from "@/components/CaseStudyModal";
@@ -55,13 +54,10 @@ export default function HomePage() {
 
         {/* 8. How We Work — WHITE */}
         <HowWeWorkSection />
-
-        {/* 9. Final CTA — WHITE / HIGH CONTRAST */}
-        <FinalCTASection onTalkToUs={() => handleOpenContact()} />
       </main>
 
-      {/* 11. Footer — BLACK */}
-      <FooterSection onTalkToUs={() => handleOpenContact()} />
+      {/* 10. Footer with Final CTA — BLACK */}
+      <FooterSection onTalkToUs={handleOpenContact} />
 
       {/* Interactive Modals */}
       <ContactModal

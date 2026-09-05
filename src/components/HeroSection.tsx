@@ -2,12 +2,14 @@
 
 import React from "react";
 import { ArrowRightIcon } from "./Icons";
+import { useCalendly } from "@/context/CalendlyContext";
 
 interface HeroSectionProps {
   onTalkToUs?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onTalkToUs }) => {
+  const { openCalendly } = useCalendly();
   return (
     <section
       id="hero"
@@ -32,21 +34,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onTalkToUs }) => {
           {/* Primary & Secondary CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#products"
+              href="/products"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 text-sm sm:text-base font-semibold text-white bg-black hover:bg-neutral-800 active:scale-[0.98] rounded-lg transition-all cursor-pointer shadow-lg shadow-black/10"
             >
               <span>Explore our products</span>
               <ArrowRightIcon className="w-4 h-4" />
             </a>
 
-            <a
-              href="https://calendly.com/nytkode/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => openCalendly()}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-semibold text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded-lg transition-all cursor-pointer active:scale-[0.98]"
             >
               <span>Book a call</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>

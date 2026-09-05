@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { NytKodeLogo } from "./NytKodeLogo";
-import { MenuIcon, XIcon, ArrowRightIcon } from "./Icons";
+import { MenuIcon, XIcon, ArrowRightIcon, WhatsAppIcon } from "./Icons";
+import { useCalendly } from "@/context/CalendlyContext";
 
 interface NavbarProps {
   onTalkToUs?: () => void;
@@ -10,6 +11,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "light" }) => {
+  const { openCalendly } = useCalendly();
   const [isScrolled, setIsScrolled] = useState(false);
   const [navTheme, setNavTheme] = useState<"light" | "dark">(initialTheme);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -79,16 +81,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Left: Brand Logo (Exact size 84 preserved) */}
-        <a href="/" className="flex items-center group focus:outline-none transition-transform active:scale-95">
-          <NytKodeLogo
-            size={84}
-            variant={isDark ? "light" : "dark"}
-            className="transition-opacity duration-200"
-          />
-        </a>
+        <div className="flex-1 flex items-center justify-start">
+          <a href="/" className="flex items-center group focus:outline-none transition-transform active:scale-95">
+            <NytKodeLogo
+              size={84}
+              variant={isDark ? "light" : "dark"}
+              className="transition-opacity duration-200"
+            />
+          </a>
+        </div>
 
-        {/* Center: Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
+        {/* Center: Navigation Links (True Horizontal Center) */}
+        <nav className="hidden md:flex items-center justify-center gap-1 lg:gap-2 shrink-0">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -104,35 +108,52 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
           ))}
         </nav>
 
-        {/* Right: Action Button */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Right: Action Buttons */}
+        <div className="hidden md:flex flex-1 items-center justify-end gap-3">
           <a
-            href="https://calendly.com/nytkode/30min"
+            href="https://wa.me/918127471282"
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-4.5 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer active:scale-[0.98] shadow-xs ${
+            aria-label="Chat on WhatsApp"
+            className="w-10 h-10 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 transition-all flex items-center justify-center text-white shadow-md hover:shadow-[#25D366]/20 shrink-0"
+          >
+            <WhatsAppIcon className="w-5.5 h-5.5 text-white" />
+          </a>
+
+          <button
+            onClick={() => openCalendly()}
+            className={`inline-flex items-center justify-center gap-2.5 h-10 px-5.5 text-sm font-semibold rounded-xl transition-all cursor-pointer active:scale-[0.98] shadow-sm shrink-0 ${
               isDark
                 ? "text-black bg-white hover:bg-neutral-200"
                 : "text-white bg-black hover:bg-neutral-800"
             }`}
           >
             <span>Book a call</span>
-            <ArrowRightIcon className="w-3.5 h-3.5" />
-          </a>
+            <ArrowRightIcon className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex md:hidden items-center gap-2.5">
           <a
-            href="https://calendly.com/nytkode/30min"
+            href="https://wa.me/918127471282"
             target="_blank"
             rel="noopener noreferrer"
-            className={`px-3 py-1.5 text-xs font-semibold rounded-lg active:scale-95 transition-colors ${
+            aria-label="Chat on WhatsApp"
+            className="w-8.5 h-8.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 transition-all flex items-center justify-center text-white shadow-sm shrink-0"
+          >
+            <WhatsAppIcon className="w-4.5 h-4.5 text-white" />
+          </a>
+
+          <button
+            onClick={() => openCalendly()}
+            className={`h-8.5 px-3.5 text-xs font-semibold rounded-lg active:scale-95 transition-colors cursor-pointer inline-flex items-center justify-center ${
               isDark ? "bg-white text-black" : "bg-black text-white"
             }`}
           >
             Book a call
-          </a>
+          </button>
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
@@ -173,22 +194,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
             ))}
           </div>
           <div
-            className={`pt-3 border-t ${
+            className={`pt-3 border-t flex items-center gap-3 ${
               isDark ? "border-white/[0.08]" : "border-black/[0.08]"
             }`}
           >
             <a
-              href="https://calendly.com/nytkode/30min"
+              href="https://wa.me/918127471282"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`w-full flex items-center justify-center gap-2.5 px-5 py-3 text-base font-semibold rounded-lg transition-all ${
+              aria-label="Chat on WhatsApp"
+              className="w-12 h-12 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 transition-all flex items-center justify-center text-white shadow-sm shrink-0"
+            >
+              <WhatsAppIcon className="w-6 h-6 text-white" />
+            </a>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openCalendly();
+              }}
+              className={`flex-1 flex items-center justify-center gap-2.5 px-5 py-3.5 text-base font-semibold rounded-xl transition-all cursor-pointer ${
                 isDark ? "bg-white text-black" : "bg-black text-white"
               }`}
             >
               <span>Book a call</span>
               <ArrowRightIcon className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
       )}

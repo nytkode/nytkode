@@ -2,14 +2,16 @@
 
 import React, { useState } from "react";
 import { ArrowRightIcon, CheckIcon, MessageSquareIcon, WorkflowIcon, SparklesIcon, ShieldCheckIcon, ChevronRightIcon, ReplyIcon } from "./Icons";
+import { useCalendly } from "@/context/CalendlyContext";
 
 interface MegaProductShowcaseProps {
-  onTalkToUs: (subject?: string) => void;
+  onTalkToUs?: (subject?: string) => void;
 }
 
 export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
   onTalkToUs,
 }) => {
+  const { openCalendly } = useCalendly();
   const [activeChannel, setActiveChannel] = useState<"whatsapp" | "instagram" | "facebook" | "threads">("instagram");
   const [activeWorkflowStep, setActiveWorkflowStep] = useState<number>(0);
   const [humanTakeover, setHumanTakeover] = useState(false);
@@ -299,7 +301,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                       className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 focus:outline-none font-mono"
                     />
                     <button
-                      onClick={() => onTalkToUs("MEGA Live Demo")}
+                      onClick={() => onTalkToUs?.("MEGA Live Demo")}
                       className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs font-mono shrink-0 hover:bg-neutral-200 transition-colors cursor-pointer"
                     >
                       Send
@@ -494,21 +496,19 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
-                onClick={() => onTalkToUs("Explore MEGA")}
+                onClick={() => onTalkToUs?.("Explore MEGA")}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-xs font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
               >
                 <span>Explore MEGA</span>
                 <ArrowRightIcon className="w-3.5 h-3.5" />
               </button>
 
-              <a
-                href="https://calendly.com/nytkode/30min"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => openCalendly()}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs font-semibold text-neutral-900 bg-neutral-200 hover:bg-neutral-300 transition-colors cursor-pointer"
               >
                 <span>Book a call</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -546,7 +546,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
 
             <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <button
-                onClick={() => onTalkToUs("Agency Operations Platform — Early Access")}
+                onClick={() => onTalkToUs?.("Agency Operations Platform — Early Access")}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs font-mono font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
               >
                 <span>Coming soon &bull; Get Notified</span>

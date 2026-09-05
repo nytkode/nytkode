@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/FooterSection";
 import { ContactModal } from "@/components/ContactModal";
+import { useCalendly } from "@/context/CalendlyContext";
 import {
   ArrowRightIcon,
   ChevronRightIcon,
@@ -15,6 +16,7 @@ import {
 } from "@/components/Icons";
 
 export default function HealthcareCaseStudyPage() {
+  const { openCalendly } = useCalendly();
   const [contactOpen, setContactOpen] = useState(false);
   const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
 
@@ -165,15 +167,13 @@ export default function HealthcareCaseStudyPage() {
               </p>
             </div>
 
-            <a
-              href="https://calendly.com/nytkode/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => openCalendly()}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-black bg-white hover:bg-neutral-200 transition-colors cursor-pointer shrink-0 shadow-md"
             >
               <span>Book a call</span>
               <ArrowRightIcon className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
       </main>

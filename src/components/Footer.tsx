@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
                 <GithubIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
