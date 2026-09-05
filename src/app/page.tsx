@@ -9,7 +9,6 @@ import { WhatWeBuildSection } from "@/components/WhatWeBuildSection";
 import { MegaProductShowcase } from "@/components/MegaProductShowcase";
 import { CommunitySection } from "@/components/CommunitySection";
 import { HowWeWorkSection } from "@/components/HowWeWorkSection";
-import { OriginDirectiveSection } from "@/components/OriginDirectiveSection";
 import { FinalCTASection } from "@/components/FinalCTASection";
 import { FooterSection } from "@/components/FooterSection";
 import { ContactModal } from "@/components/ContactModal";
@@ -31,7 +30,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black flex flex-col font-sans selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-white text-black flex flex-col font-sans">
       {/* 1. Navigation */}
       <Navbar onTalkToUs={() => handleOpenContact()} />
 
@@ -57,10 +56,7 @@ export default function HomePage() {
         {/* 8. How We Work — WHITE */}
         <HowWeWorkSection />
 
-        {/* 9. Origin / Directive (Founder & Company Purpose) — BLACK */}
-        <OriginDirectiveSection />
-
-        {/* 10. Final CTA — WHITE / HIGH CONTRAST */}
+        {/* 9. Final CTA — WHITE / HIGH CONTRAST */}
         <FinalCTASection onTalkToUs={() => handleOpenContact()} />
       </main>
 

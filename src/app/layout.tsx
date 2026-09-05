@@ -1,13 +1,20 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const jaro = localFont({
+  src: "../../public/fonts/Jaro-Regular.ttf",
+  variable: "--font-jaro",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "NytKode — Systems that generate more revenue in less time.",
   description:
-    "We build software, automation, and infrastructure that help businesses capture more opportunities, eliminate repetitive work, and operate faster.",
+    "We build systems that help businesses win more customers, save time, and get more done.",
   keywords: [
     "NytKode",
-    "Night Code",
+    "Knight Code",
     "B2B Software",
     "Business Automation",
     "Operational Infrastructure",
@@ -21,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NytKode — Systems that generate more revenue in less time.",
     description:
-      "We build software, automation, and infrastructure that help businesses capture more opportunities, eliminate repetitive work, and operate faster.",
+      "We build systems that help businesses win more customers, save time, and get more done.",
     siteName: "NytKode",
     locale: "en_US",
     type: "website",
@@ -29,6 +36,15 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: [
+      { url: "/nytkode.svg", type: "image/svg+xml" },
+    ],
+    shortcut: ["/nytkode.svg"],
+    apple: [
+      { url: "/nytkode.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
@@ -44,8 +60,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen bg-white text-black font-sans antialiased selection:bg-black selection:text-white flex flex-col">
+    <html lang="en" className={`scroll-smooth ${jaro.variable}`}>
+      <body className="min-h-screen bg-white text-black font-sans antialiased flex flex-col">
         {children}
       </body>
     </html>

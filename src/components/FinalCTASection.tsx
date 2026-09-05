@@ -10,8 +10,8 @@ interface FinalCTASectionProps {
 export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onTalkToUs }) => {
   return (
     <section id="contact" data-theme="light" className="bg-white text-black py-32 sm:py-48 border-b border-neutral-200 relative overflow-hidden">
-      {/* Background Grid Lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      {/* Ambient Studio Depth Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.035),transparent_70%)] pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 uppercase tracking-widest mb-8">

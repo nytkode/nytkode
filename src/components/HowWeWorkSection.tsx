@@ -39,36 +39,28 @@ export const HowWeWorkSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-20">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 uppercase tracking-widest mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-black" />
-            <span>THE NYTKODE METHOD</span>
-          </div>
-
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-950 leading-tight">
             How we turn problems into systems.
           </h2>
         </div>
 
-        {/* Editorial Asymmetric Sequence with Oversized Numbers */}
-        <div className="space-y-16">
-          {steps.map((step, idx) => (
+        {/* Editorial 3-Column Sequence with Oversized Numbers */}
+        <div className="space-y-4">
+          {steps.map((step) => (
             <div
               key={step.num}
-              className="border-t border-neutral-200 pt-10 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline"
+              className="border-t border-neutral-200 py-12 sm:py-16 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
             >
-              {/* Oversized Number (Left 3 cols) */}
+              {/* Column 1: Oversized Number (Left 3 cols) */}
               <div className="md:col-span-3">
                 <div className="text-6xl sm:text-7xl md:text-8xl font-mono font-extrabold text-neutral-300 tracking-tighter leading-none">
                   {step.num}
                 </div>
               </div>
 
-              {/* Title & Headline (Middle 5 cols) */}
-              <div className="md:col-span-5">
-                <div className="text-xs font-mono text-neutral-500 uppercase tracking-widest mb-2">
-                  PHASE // 0{idx + 1}
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-950 mb-3">
+              {/* Column 2: Title & Summary (Middle 5 cols) */}
+              <div className="md:col-span-5 space-y-3">
+                <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-950">
                   {step.title}
                 </h3>
                 <p className="text-base sm:text-lg font-medium text-neutral-800 leading-snug">
@@ -76,9 +68,9 @@ export const HowWeWorkSection: React.FC = () => {
                 </p>
               </div>
 
-              {/* Detail narrative (Right 4 cols) */}
+              {/* Column 3: Detail Narrative (Right 4 cols) */}
               <div className="md:col-span-4">
-                <p className="text-sm text-neutral-600 leading-relaxed pt-2">
+                <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
                   {step.detail}
                 </p>
               </div>

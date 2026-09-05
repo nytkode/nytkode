@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.font-jaro {
+  font-family: var(--font-jaro), 'Jaro', sans-serif;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -12,6 +16,50 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Default Selection (White/Light backgrounds): Black highlight with White text */
+  ::selection {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  ::-moz-selection {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Light Theme Selection (Explicit): Black highlight with White text */
+  [data-theme="light"] ::selection,
+  [data-theme="light"] *::selection,
+  .bg-white ::selection,
+  .bg-white *::selection {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  /* Dark Theme Selection (Black/Dark backgrounds): White highlight with Black text */
+  [data-theme="dark"] ::selection,
+  [data-theme="dark"] *::selection,
+  .bg-black ::selection,
+  .bg-black *::selection,
+  .bg-neutral-950 ::selection,
+  .bg-neutral-950 *::selection,
+  .bg-neutral-900 ::selection,
+  .bg-neutral-900 *::selection {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  [data-theme="dark"] ::-moz-selection,
+  [data-theme="dark"] *::-moz-selection,
+  .bg-black ::-moz-selection,
+  .bg-black *::-moz-selection {
+    background-color: #ffffff !important;
+    color: #000000 !important;
   }
 }
 

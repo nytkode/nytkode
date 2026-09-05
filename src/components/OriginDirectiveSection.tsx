@@ -2,103 +2,111 @@
 
 import React from "react";
 import Image from "next/image";
-import { NytKodeLogo } from "./NytKodeLogo";
+import { LinkedinIcon, TwitterIcon, InstagramIcon } from "./Icons";
 
 export const OriginDirectiveSection: React.FC = () => {
   return (
-    <section id="about" data-theme="dark" className="bg-black text-white py-28 sm:py-40 border-b border-neutral-800 relative overflow-hidden">
-      {/* Background Grid Lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+    <section id="about" data-theme="dark" className="bg-black text-white py-36 sm:py-48 lg:py-56 border-b border-neutral-800 relative overflow-hidden">
+      {/* Ambient Depth Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[750px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_70%)] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-neutral-400 uppercase tracking-widest mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-white" />
-            <span>ORIGIN STORY &amp; FOUNDATION</span>
-          </div>
-
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight">
+        {/* Section Header & Origin Narrative */}
+        <div className="mb-24 sm:mb-28">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-14 sm:mb-16">
             Where NytKode comes from.
           </h2>
-        </div>
 
-        {/* Editorial Composition: Story & Founder Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-          {/* Story Narrative (Left 7 Cols) */}
-          <div className="lg:col-span-7 space-y-6">
-            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-100 tracking-tight leading-snug">
-              NytKode was born from building software around real operational problems.
-            </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            {/* Subheading / Core Premise (5 Cols) */}
+            <div className="lg:col-span-5">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-100 tracking-tight leading-snug">
+                We build software for the work businesses actually do.
+              </h3>
+            </div>
 
-            <div className="space-y-4 text-base sm:text-lg text-neutral-400 leading-relaxed font-normal">
+            {/* Narrative Paragraphs (7 Cols) */}
+            <div className="lg:col-span-7 space-y-6 text-base sm:text-lg text-neutral-400 leading-relaxed font-normal">
               <p>
-                Too many companies are held together by fragile spreadsheet formulas, missed WhatsApp messages, and disconnected SaaS subscriptions that don&apos;t talk to each other.
+                NytKode started with a simple thought: if something is being done the same way every day, there&apos;s probably a better way to do it.
+              </p>
+              <p className="text-neutral-200 font-medium">
+                We believe software should fit the way a business actually works, not force the business to change how it works.
               </p>
               <p>
-                Businesses don&apos;t need more generic tools or speculative features. They lose thousands of hours and substantial revenue every month simply because their daily operations rely on human memory and repetitive manual coordination.
-              </p>
-              <p className="text-neutral-300">
-                We started NytKode to fix that — engineering durable software systems that plug directly into real workflows, run autonomously, and eliminate friction at the root.
+                So we build systems around real operational problems that helps businesses make the most of every opportunity, and ultimately generate more revenue in less time.
               </p>
             </div>
           </div>
+        </div>
 
-          {/* Founder Editorial Visual Card (Right 5 Cols) */}
-          <div className="lg:col-span-5">
-            <div className="bg-neutral-950 border border-neutral-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
-              {/* Founder Image Container (Easily replaceable asset) */}
-              <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800 mb-6 flex items-center justify-center group">
-                {/* Fallback Graphic Frame with Logo Mark */}
-                <div className="absolute inset-0 bg-gradient-to-br from-neutral-800 to-neutral-950 flex flex-col items-center justify-center p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-white/5 border border-white/15 flex items-center justify-center mb-4">
-                    <NytKodeLogo size={52} variant="light" />
-                  </div>
-                  <div className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-                    ENGINEERING &bull; INFRASTRUCTURE &bull; SYSTEMS
-                  </div>
-                </div>
-
-                {/* Optional Replaceable Image */}
+        {/* Founder Quote & Portrait Showcase */}
+        <div className="border-t border-neutral-800 pt-16 sm:pt-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            {/* Founder Portrait & Details (4 Cols, Vertical Editorial Image) */}
+            <div className="lg:col-span-4 max-w-sm">
+              <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-neutral-900 shadow-2xl">
                 <Image
-                  src="/founder.jpg"
-                  alt="Vishesh Sachan"
+                  src="/founder.png"
+                  alt="Vishesh Sachan — Founder, NytKode"
                   fill
-                  className="object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  onError={(e) => {
-                    // Hide if image doesn't exist
-                    (e.target as HTMLElement).style.display = "none";
-                  }}
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 100vw, 360px"
+                  priority
                 />
               </div>
 
-              {/* Founder Metadata */}
-              <div className="flex items-center justify-between border-t border-neutral-800 pt-4">
-                <div>
-                  <h4 className="text-lg font-bold text-white tracking-tight">
-                    Vishesh Sachan
-                  </h4>
-                  <p className="text-xs font-mono text-neutral-400">
-                    Founder, NytKode
-                  </p>
-                </div>
+              <div className="pt-4 px-1">
+                <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                  Vishesh Sachan
+                </h4>
+                <p className="text-xs font-mono text-neutral-400 mt-0.5">
+                  Founder, NytKode
+                </p>
+              </div>
+            </div>
 
-                <span className="text-[10px] font-mono px-2 py-1 rounded bg-white/5 border border-white/10 text-neutral-400">
-                  EST. 2026
-                </span>
+            {/* Founder Quote (8 Cols) */}
+            <div className="lg:col-span-8 space-y-6">
+              <blockquote className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.18]">
+                &ldquo;NytKode is my way of turning everyday business problems into software that actually makes a difference.&rdquo;
+              </blockquote>
+              <div className="text-sm font-mono text-neutral-400">
+                — Vishesh Sachan
+              </div>
+
+              {/* Founder Direct Socials */}
+              <div className="flex items-center gap-3 pt-2">
+                <a
+                  href="https://www.linkedin.com/in/vishesh-sachan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Vishesh Sachan on LinkedIn"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-white/40 hover:bg-white/10 text-neutral-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://x.com/visheshsachan21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Vishesh Sachan on X (Twitter)"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-white/40 hover:bg-white/10 text-neutral-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm"
+                >
+                  <TwitterIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://www.instagram.com/visheshsachan01/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Vishesh Sachan on Instagram"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-white/40 hover:bg-white/10 text-neutral-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Company Directive Banner */}
-        <div className="border-t border-neutral-800 pt-16">
-          <div className="text-xs font-mono text-neutral-500 uppercase tracking-widest mb-6">
-            THE COMPANY DIRECTIVE
-          </div>
-          <blockquote className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] max-w-5xl">
-            &ldquo;Build systems that give businesses back their time — and help them capture more revenue.&rdquo;
-          </blockquote>
         </div>
       </div>
     </section>

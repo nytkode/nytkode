@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRightIcon, CheckIcon, MessageSquareIcon, WorkflowIcon, SparklesIcon, ShieldCheckIcon, ChevronRightIcon } from "./Icons";
+import { ArrowRightIcon, CheckIcon, MessageSquareIcon, WorkflowIcon, SparklesIcon, ShieldCheckIcon, ChevronRightIcon, ReplyIcon } from "./Icons";
 
 interface MegaProductShowcaseProps {
   onTalkToUs: (subject?: string) => void;
@@ -37,11 +37,17 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
       tag: "Patient Booking",
       status: "Reminder Cadence",
       messages: [
-        { sender: "mega", text: "Hello Marcus, this is a reminder for your dental consultation tomorrow at 11:00 AM with Dr. Aris. Reply '1' to confirm or '2' to reschedule.", time: "09:00 AM", isAutomated: true },
-        { sender: "customer", text: "1", time: "09:03 AM" },
-        { sender: "mega", text: "Confirmed! Your clinic location is Suite 400, Midtown Medical Tower. Check-in code: D-8821.", time: "09:03 AM", isAutomated: true },
+        {
+          sender: "mega",
+          text: "Hello Marcus, this is a reminder for your consultation tomorrow at 11:00 AM with Dr. Aris.",
+          buttons: ["Confirm", "Reschedule"],
+          time: "09:00 AM",
+          isAutomated: true,
+        },
+        { sender: "customer", text: "Confirm", time: "09:01 AM" },
+        { sender: "mega", text: "Appointment confirmed! Your clinic location is Suite 400, Midtown Medical Tower. Check-in code: D-8821.", time: "09:01 AM", isAutomated: true },
       ],
-      automationTrace: "Trigger: 24h Prior Cadence → '1' Detected → State: CONFIRMED_IN_CALENDAR",
+      automationTrace: "Trigger: 24h Prior Cadence → 'Confirm' Selected → State: CONFIRMED_IN_CALENDAR",
     },
     facebook: {
       customer: "Sarah Jenkins",
@@ -66,6 +72,8 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
       messages: [
         { sender: "customer", text: "@nytkode love the architecture breakdowns! Are public APIs open?", time: "11:20 AM" },
         { sender: "mega", text: "Thanks for the shout! Yes, our open-source tools and developer CLI are on GitHub.", time: "11:21 AM", isAutomated: true },
+        { sender: "customer", text: "Great, checking them out now!", time: "11:22 AM" },
+        { sender: "mega", text: "Feel free to reach out if you need custom system integration!", time: "11:22 AM", isAutomated: true },
       ],
       automationTrace: "Trigger: Brand Mention Filter → Public Reply Generator Queued",
     },
@@ -85,16 +93,12 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
 
   return (
     <section id="products" data-theme="light" className="bg-white text-black py-28 sm:py-36 border-b border-neutral-200 relative overflow-hidden">
-      {/* Background Grid Lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      {/* Ambient Studio Depth Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1300px] h-[700px] bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.03),transparent_70%)] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <div className="mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-neutral-500 uppercase tracking-widest mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-black" />
-            <span>COMMERCIAL TECHNOLOGY SUITE</span>
-          </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-950">
             Technology built for business.
           </h2>
@@ -137,7 +141,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                   <div className="w-3 h-3 rounded-full bg-neutral-700" />
                 </div>
                 <span className="text-xs font-mono text-neutral-400 font-medium pl-2 border-l border-neutral-800">
-                  MEGA Workspace // Production v2.4
+                  MEGA Workspace
                 </span>
               </div>
 
@@ -159,26 +163,25 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               </div>
             </div>
 
-            {/* Main Interface Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-12 min-h-[480px]">
-              {/* Sidebar Navigation */}
-              <div className="hidden md:flex md:col-span-3 border-r border-neutral-800 p-4 flex-col justify-between bg-neutral-950/60">
-                <div className="space-y-1 text-xs font-mono">
-                  <div className="text-[10px] uppercase text-neutral-500 px-2 py-1.5 tracking-wider">
+            {/* Main Interface Layout with Expanded Height & Full Visibility Across All Channels */}
+            <div className="grid grid-cols-1 md:grid-cols-12 min-h-[580px] lg:min-h-[620px]">
+              {/* Compact Sidebar Navigation */}
+              <div className="hidden md:flex md:col-span-3 border-r border-neutral-800 p-4 sm:p-5 flex-col justify-between bg-neutral-950/60">
+                <div className="space-y-1.5 text-xs font-mono">
+                  <div className="text-[10px] uppercase text-neutral-500 px-2.5 py-1.5 tracking-wider">
                     Operational Modules
                   </div>
                   {[
                     { label: "Overview", count: "4 Active" },
                     { label: "Inbox", count: "12 Unread", active: true },
                     { label: "Comments", count: "24 Monitored" },
-                    { label: "Automations", count: "8 Rules" },
                     { label: "Contacts", count: "1,420" },
                     { label: "Analytics", count: "+38%" },
                     { label: "Settings", count: "Meta API OK" },
                   ].map((item) => (
                     <div
                       key={item.label}
-                      className={`flex items-center justify-between px-2.5 py-2 rounded transition-colors ${
+                      className={`flex items-center justify-between px-3 py-2.5 rounded-lg transition-colors ${
                         item.active
                           ? "bg-white/10 text-white font-semibold"
                           : "text-neutral-400 hover:text-white hover:bg-white/5"
@@ -192,9 +195,9 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                   ))}
                 </div>
 
-                <div className="p-3 rounded-lg bg-neutral-900 border border-neutral-800 text-[11px] font-mono">
+                <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono">
                   <div className="text-neutral-400">Meta API Status:</div>
-                  <div className="text-emerald-400 font-semibold flex items-center gap-1.5 mt-0.5">
+                  <div className="text-emerald-400 font-semibold flex items-center gap-1.5 mt-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span>GRAPH API CONNECTED</span>
                   </div>
@@ -202,10 +205,10 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               </div>
 
               {/* Center: Conversation Stream & Message Composer */}
-              <div className="md:col-span-6 flex flex-col justify-between p-4 sm:p-6 border-r border-neutral-800 bg-black/40">
-                <div>
+              <div className="md:col-span-9 flex flex-col justify-between p-4 sm:p-6 bg-black/40 h-full">
+                <div className="flex flex-col flex-1">
                   {/* Conversation Header */}
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-800">
+                  <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-neutral-800 shrink-0">
                     <div>
                       <div className="flex items-center gap-2">
                         <h4 className="font-bold text-white text-base">
@@ -222,7 +225,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
 
                     <button
                       onClick={() => setHumanTakeover(!humanTakeover)}
-                      className={`text-xs font-mono px-3 py-1.5 rounded border transition-colors cursor-pointer ${
+                      className={`text-xs font-mono px-3 py-1.5 rounded-lg border transition-colors cursor-pointer ${
                         humanTakeover
                           ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
                           : "bg-white/5 text-neutral-400 border-white/10 hover:text-white"
@@ -232,9 +235,9 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                     </button>
                   </div>
 
-                  {/* Message Stream */}
-                  <div className="space-y-3.5 my-4">
-                    {currentConv.messages.map((msg, idx) => (
+                  {/* Message Stream — Spacious view showing full conversation, with natural space below shorter chats */}
+                  <div className="space-y-4 pr-1 overflow-y-auto">
+                    {currentConv.messages.map((msg: any, idx: number) => (
                       <div
                         key={idx}
                         className={`flex flex-col ${
@@ -242,17 +245,38 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                         }`}
                       >
                         <div
-                          className={`max-w-[85%] p-3.5 rounded-xl text-xs sm:text-sm leading-relaxed ${
+                          className={`max-w-[85%] rounded-2xl text-xs sm:text-sm leading-relaxed overflow-hidden shadow-xs ${
                             msg.sender === "customer"
-                              ? "bg-neutral-800 text-neutral-100 rounded-tl-xs"
-                              : "bg-white text-black font-medium rounded-tr-xs"
+                              ? "bg-neutral-800 text-neutral-100 rounded-tl-xs p-3.5 border border-neutral-700/50"
+                              : "bg-white text-neutral-950 font-medium rounded-tr-xs"
                           }`}
                         >
-                          {msg.text}
+                          <div className={msg.sender === "mega" ? "p-3.5 pb-2.5" : ""}>
+                            <p>{msg.text}</p>
+                          </div>
+
+                          {/* Attached Interactive Reply Buttons (Design ref from Proof Section) */}
+                          {msg.buttons && (
+                            <div className="border-t border-neutral-200/90 p-2 bg-neutral-100/90 flex flex-col sm:flex-row gap-2">
+                              {msg.buttons.map((btn: string, bIdx: number) => (
+                                <div
+                                  key={bIdx}
+                                  className={`flex-1 flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                    bIdx === 0
+                                      ? "bg-neutral-950 hover:bg-neutral-800 text-white shadow-xs"
+                                      : "bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300/80 shadow-2xs"
+                                  }`}
+                                >
+                                  <ReplyIcon className={`w-3.5 h-3.5 shrink-0 ${bIdx === 0 ? "text-white" : "text-neutral-500"}`} />
+                                  <span>{btn}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                         <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-500 mt-1 px-1">
                           {msg.isAutomated && (
-                            <span className="text-emerald-400">[MEGA AUTO]</span>
+                            <span className="text-emerald-400 font-medium">[MEGA AUTO]</span>
                           )}
                           <span>{msg.time}</span>
                         </div>
@@ -261,8 +285,8 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                   </div>
                 </div>
 
-                {/* Message Composer */}
-                <div className="pt-4 border-t border-neutral-800">
+                {/* Message Composer Anchored at Bottom */}
+                <div className="pt-4 mt-4 border-t border-neutral-800 shrink-0">
                   <div className="flex items-center gap-2">
                     <input
                       type="text"
@@ -276,40 +300,11 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                     />
                     <button
                       onClick={() => onTalkToUs("MEGA Live Demo")}
-                      className="px-3.5 py-2.5 rounded-lg bg-white text-black font-semibold text-xs font-mono shrink-0 hover:bg-neutral-200 transition-colors"
+                      className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs font-mono shrink-0 hover:bg-neutral-200 transition-colors cursor-pointer"
                     >
                       Send
                     </button>
                   </div>
-                </div>
-              </div>
-
-              {/* Right: Automation Engine Telemetry & Context */}
-              <div className="md:col-span-3 p-4 sm:p-5 flex flex-col justify-between bg-neutral-950/60 text-xs font-mono">
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] uppercase text-neutral-500 tracking-wider block mb-1">
-                      Live Trigger Trace
-                    </span>
-                    <p className="text-neutral-300 leading-relaxed text-[11px] p-2.5 rounded bg-neutral-900 border border-neutral-800">
-                      {currentConv.automationTrace}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="text-[10px] uppercase text-neutral-500 tracking-wider block mb-1.5">
-                      Customer Profile
-                    </span>
-                    <div className="space-y-1.5 text-[11px] text-neutral-400">
-                      <div>Channel: <span className="text-white">{currentConv.channelLabel}</span></div>
-                      <div>Intent Score: <span className="text-emerald-400">98% High</span></div>
-                      <div>CRM Sync: <span className="text-white">Active</span></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-neutral-800 text-[10px] text-neutral-500">
-                  NytKode Real-time Meta Ingestion Engine
                 </div>
               </div>
             </div>
@@ -356,9 +351,9 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                   className="p-5 rounded-xl bg-white border border-neutral-200 flex flex-col justify-between hover:border-neutral-400 transition-colors shadow-xs"
                 >
                   <div>
-                    <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">
+                    {/* <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-2">
                       {channel.tag}
-                    </span>
+                    </span> */}
                     <h5 className="text-lg font-bold text-neutral-950 mb-2">
                       {channel.title}
                     </h5>
@@ -376,8 +371,9 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
           </div>
 
           {/* ========================================================================= */}
-          {/* THE AUTOMATION ENGINE (Visual Multi-Step Pipeline)                         */}
+          {/* THE AUTOMATION ENGINE (Commented Out)                                      */}
           {/* ========================================================================= */}
+          {/*
           <div className="mb-20 p-6 sm:p-8 rounded-2xl bg-neutral-900 text-white border border-neutral-800">
             <div className="max-w-2xl mb-8">
               <div className="text-xs font-mono text-neutral-400 uppercase tracking-widest mb-2">
@@ -391,7 +387,6 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               </p>
             </div>
 
-            {/* Interactive Workflow Visualizer */}
             <div className="grid grid-cols-1 md:grid-cols-7 gap-2 relative">
               {workflowSteps.map((step, idx) => {
                 const isSelected = activeWorkflowStep === idx;
@@ -428,7 +423,6 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               })}
             </div>
 
-            {/* Active Workflow Inspector */}
             <div className="mt-6 pt-4 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
               <div className="flex items-center gap-2">
                 <span className="text-emerald-400">CURRENT STEP:</span>
@@ -440,10 +434,12 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               </span>
             </div>
           </div>
+          */}
 
           {/* ========================================================================= */}
-          {/* REAL BUSINESS EXAMPLE (Clinic Workflow: PRICE → Appointment)               */}
+          {/* REAL BUSINESS EXAMPLE (Clinic Workflow: PRICE → Appointment) (Commented Out) */}
           {/* ========================================================================= */}
+          {/*
           <div className="mb-16 p-6 sm:p-8 rounded-2xl bg-white border border-neutral-300">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
               <div>
@@ -459,7 +455,6 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               </span>
             </div>
 
-            {/* Step-by-Step Clinic Pipeline */}
             <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
               {[
                 { title: "Customer Comments", content: '"PRICE"', sub: "Instagram / Facebook Post" },
@@ -482,6 +477,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               ))}
             </div>
           </div>
+          */}
 
           {/* ========================================================================= */}
           {/* MEGA CTA BAR                                                              */}
@@ -516,36 +512,45 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
         </div>
 
         {/* ========================================================================= */}
-        {/* SECOND COMMERCIAL PRODUCT (Secondary Feature: Agency Operations Platform)  */}
+        {/* SECOND COMMERCIAL PRODUCT (Agency Operations Platform)                   */}
         {/* ========================================================================= */}
-        <div className="bg-neutral-100 border border-neutral-300 rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
-                COMMERCIAL PIPELINE
-              </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-200 text-neutral-800 font-semibold">
-                In development
-              </span>
+        <div className="bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="max-w-3xl">
+              {/* Product Badge & Name in same style as MEGA + In Development status */}
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs font-mono font-bold tracking-widest uppercase bg-black text-white px-3 py-1 rounded">
+                    AOP
+                  </span>
+                  <span className="text-xs font-mono text-neutral-500">
+                    Agency Operations Platform
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 text-[11px] font-mono text-neutral-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span>In development</span>
+                </div>
+              </div>
+
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.06] mb-4">
+                Operations built for marketing agencies.
+              </h3>
+
+              <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+                A purpose-built operational system for small and medium-sized marketing agencies to organize clients, assets, workflows and day-to-day operations.
+              </p>
             </div>
 
-            <h4 className="text-2xl font-bold tracking-tight text-neutral-950 mb-2">
-              Agency Operations Platform
-            </h4>
-
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-              A purpose-built operational system for small and medium-sized marketing agencies to organize clients, assets, workflows and day-to-day operations.
-            </p>
-          </div>
-
-          <div className="shrink-0">
-            <button
-              onClick={() => onTalkToUs("Agency Operations Platform Inquiry")}
-              className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-mono font-medium text-neutral-700 bg-white border border-neutral-300 hover:border-black hover:text-black transition-colors"
-            >
-              <span>Coming soon &bull; Get Notified</span>
-              <ArrowRightIcon className="w-3.5 h-3.5" />
-            </button>
+            <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button
+                onClick={() => onTalkToUs("Agency Operations Platform — Early Access")}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs font-mono font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
+              >
+                <span>Coming soon &bull; Get Notified</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
