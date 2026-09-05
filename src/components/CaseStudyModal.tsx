@@ -103,16 +103,16 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             <span className="text-xs text-neutral-400">
               Need similar infrastructure for your business?
             </span>
-            <button
-              onClick={() => {
-                onClose();
-                onTalkToUs();
-              }}
+            <a
+              href="https://calendly.com/nytkode/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-xs font-semibold text-black bg-white hover:bg-neutral-200 transition-colors"
             >
-              <span>Discuss Your Workflow</span>
+              <span>Book a call</span>
               <ArrowRightIcon className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

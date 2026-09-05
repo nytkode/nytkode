@@ -5,7 +5,7 @@ import { NytKodeLogo } from "./NytKodeLogo";
 import { ArrowUpRightIcon, GithubIcon, TwitterIcon, LinkedinIcon } from "./Icons";
 
 interface FooterSectionProps {
-  onTalkToUs: () => void;
+  onTalkToUs?: () => void;
   theme?: "light" | "dark";
 }
 
@@ -208,12 +208,15 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 </a>
               </li>
               <li>
-                <button
-                  onClick={onTalkToUs}
-                  className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors text-left uppercase cursor-pointer`}
+                <a
+                  href="https://calendly.com/nytkode/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors inline-flex items-center gap-1.5 uppercase`}
                 >
-                  Contact Us
-                </button>
+                  <span>Book a Call</span>
+                  <ArrowUpRightIcon className={`w-3 h-3 ${isLight ? "text-neutral-400" : "text-neutral-500"}`} />
+                </a>
               </li>
             </ul>
           </div>

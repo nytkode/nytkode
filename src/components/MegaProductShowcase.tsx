@@ -501,12 +501,14 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 <ArrowRightIcon className="w-3.5 h-3.5" />
               </button>
 
-              <button
-                onClick={() => onTalkToUs("Talk to us — MEGA")}
+              <a
+                href="https://calendly.com/nytkode/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs font-semibold text-neutral-900 bg-neutral-200 hover:bg-neutral-300 transition-colors cursor-pointer"
               >
-                <span>Talk to us</span>
-              </button>
+                <span>Book a call</span>
+              </a>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import React from "react";
 import { ArrowRightIcon } from "./Icons";
 
 interface FinalCTASectionProps {
-  onTalkToUs: () => void;
+  onTalkToUs?: () => void;
 }
 
 export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onTalkToUs }) => {
@@ -28,13 +28,15 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onTalkToUs }) 
         </p>
 
         <div className="flex items-center justify-center">
-          <button
-            onClick={onTalkToUs}
+          <a
+            href="https://calendly.com/nytkode/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 px-10 py-5 text-base font-semibold text-white bg-black hover:bg-neutral-800 active:scale-[0.98] rounded-xl transition-all cursor-pointer shadow-xl shadow-black/10"
           >
-            <span>Talk to NytKode</span>
+            <span>Book a call</span>
             <ArrowRightIcon className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

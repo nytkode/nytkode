@@ -5,7 +5,7 @@ import { NytKodeLogo } from "./NytKodeLogo";
 import { MenuIcon, XIcon, ArrowRightIcon } from "./Icons";
 
 interface NavbarProps {
-  onTalkToUs: () => void;
+  onTalkToUs?: () => void;
   initialTheme?: "light" | "dark";
 }
 
@@ -106,29 +106,33 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
 
         {/* Right: Action Button */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={onTalkToUs}
+          <a
+            href="https://calendly.com/nytkode/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`inline-flex items-center gap-2 px-4.5 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer active:scale-[0.98] shadow-xs ${
               isDark
                 ? "text-black bg-white hover:bg-neutral-200"
                 : "text-white bg-black hover:bg-neutral-800"
             }`}
           >
-            <span>Talk to us</span>
+            <span>Book a call</span>
             <ArrowRightIcon className="w-3.5 h-3.5" />
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={onTalkToUs}
+          <a
+            href="https://calendly.com/nytkode/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg active:scale-95 transition-colors ${
               isDark ? "bg-white text-black" : "bg-black text-white"
             }`}
           >
-            Talk to us
-          </button>
+            Book a call
+          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
@@ -173,18 +177,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
               isDark ? "border-white/[0.08]" : "border-black/[0.08]"
             }`}
           >
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onTalkToUs();
-              }}
+            <a
+              href="https://calendly.com/nytkode/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
               className={`w-full flex items-center justify-center gap-2.5 px-5 py-3 text-base font-semibold rounded-lg transition-all ${
                 isDark ? "bg-white text-black" : "bg-black text-white"
               }`}
             >
-              <span>Talk to us</span>
+              <span>Book a call</span>
               <ArrowRightIcon className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       )}

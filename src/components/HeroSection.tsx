@@ -4,7 +4,7 @@ import React from "react";
 import { ArrowRightIcon } from "./Icons";
 
 interface HeroSectionProps {
-  onTalkToUs: () => void;
+  onTalkToUs?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onTalkToUs }) => {
@@ -39,12 +39,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onTalkToUs }) => {
               <ArrowRightIcon className="w-4 h-4" />
             </a>
 
-            <button
-              onClick={onTalkToUs}
+            <a
+              href="https://calendly.com/nytkode/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-semibold text-neutral-900 bg-neutral-100 hover:bg-neutral-200 border border-neutral-300 rounded-lg transition-all cursor-pointer active:scale-[0.98]"
             >
-              <span>Talk to us</span>
-            </button>
+              <span>Book a call</span>
+            </a>
           </div>
         </div>
       </div>

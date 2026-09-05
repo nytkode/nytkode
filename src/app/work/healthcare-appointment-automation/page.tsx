@@ -165,13 +165,15 @@ export default function HealthcareCaseStudyPage() {
               </p>
             </div>
 
-            <button
-              onClick={() => handleOpenContact("Healthcare Case Study Inquiry")}
+            <a
+              href="https://calendly.com/nytkode/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-black bg-white hover:bg-neutral-200 transition-colors cursor-pointer shrink-0 shadow-md"
             >
-              <span>Talk to NytKode</span>
+              <span>Book a call</span>
               <ArrowRightIcon className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </main>
