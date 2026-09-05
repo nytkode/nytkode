@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { NytKodeLogo } from "./NytKodeLogo";
 import { MenuIcon, XIcon, ArrowRightIcon, WhatsAppIcon } from "./Icons";
 import { useCalendly } from "@/context/CalendlyContext";
@@ -82,19 +83,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Left: Brand Logo (Exact size 84 preserved) */}
         <div className="flex-1 flex items-center justify-start">
-          <a href="/" className="flex items-center group focus:outline-none transition-transform active:scale-95">
+          <Link href="/" aria-label="NytKode Home" className="flex items-center group focus:outline-none transition-transform active:scale-95">
             <NytKodeLogo
               size={84}
               variant={isDark ? "light" : "dark"}
               className="transition-opacity duration-200"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Center: Navigation Links (True Horizontal Center) */}
         <nav className="hidden md:flex items-center justify-center gap-1 lg:gap-2 shrink-0">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.label}
               href={link.href}
               className={`text-sm lg:text-[15px] font-medium px-3.5 py-1.5 rounded-lg transition-all ${
@@ -104,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
               }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -179,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
         >
           <div className="flex flex-col space-y-1.5">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
@@ -190,7 +191,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <div

@@ -1,30 +1,30 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/FooterSection";
-import { ContactModal } from "@/components/ContactModal";
 import { ArrowLeftIcon } from "@/components/Icons";
 
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description:
+    "Terms of service, operational agreements, and acceptable use policies for NytKode software and engineering services.",
+  alternates: {
+    canonical: "/terms-and-conditions",
+  },
+  openGraph: {
+    title: "Terms and Conditions — NytKode",
+    description:
+      "Terms of service and operational agreements for NytKode products and engineering engagements.",
+    url: "https://nytkode.com/terms-and-conditions",
+  },
+};
+
 export default function TermsAndConditionsPage() {
-  const [contactOpen, setContactOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
-
-  const handleOpenContact = (subject?: string) => {
-    setContactSubject(subject);
-    setContactOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactOpen(false);
-    setContactSubject(undefined);
-  };
-
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans">
       {/* 1. Navigation */}
-      <Navbar onTalkToUs={() => handleOpenContact()} initialTheme="dark" />
+      <Navbar initialTheme="dark" />
 
       <main className="flex-1 pt-28 sm:pt-36 pb-20 sm:pb-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,14 +114,7 @@ export default function TermsAndConditionsPage() {
       </main>
 
       {/* Footer */}
-      <FooterSection onTalkToUs={() => handleOpenContact()} theme="dark" />
-
-      {/* Interactive Contact Modal */}
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={handleCloseContact}
-        defaultSubject={contactSubject}
-      />
+      <FooterSection theme="dark" />
     </div>
   );
 }

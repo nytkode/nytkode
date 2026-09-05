@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Link from "next/link";
 import { XIcon, CheckIcon, ArrowRightIcon } from "./Icons";
 import { useCalendly } from "@/context/CalendlyContext";
 
@@ -31,7 +32,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
       <div className="relative w-full max-w-2xl bg-neutral-950 border border-neutral-800 text-white rounded-xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-md text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-md text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <XIcon className="w-5 h-5" />
@@ -98,6 +99,17 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="pt-2">
+              <Link
+                href="/work/healthcare-appointment-automation"
+                onClick={onClose}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-neutral-300 transition-colors"
+              >
+                <span className="border-b border-white pb-0.5">Read complete case study breakdown</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
 

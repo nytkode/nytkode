@@ -8,16 +8,26 @@ import {
   HospitalIcon,
   BadgeCheckIcon,
 } from "./Icons";
+import { CaseStudyModal } from "./CaseStudyModal";
 
 interface ProofSectionProps {
-  onOpenCaseStudy: () => void;
+  onOpenCaseStudy?: () => void;
 }
 
 export const ProofSection: React.FC<ProofSectionProps> = ({ onOpenCaseStudy }) => {
   const [step, setStep] = useState<number>(0);
   const [isInView, setIsInView] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const sectionRef = useRef<HTMLElement>(null);
   const chatScrollRef = useRef<HTMLDivElement>(null);
+
+  const handleOpenCaseStudy = () => {
+    if (onOpenCaseStudy) {
+      onOpenCaseStudy();
+    } else {
+      setModalOpen(true);
+    }
+  };
 
   // Observe when Proof section is in view
   useEffect(() => {
@@ -135,7 +145,7 @@ export const ProofSection: React.FC<ProofSectionProps> = ({ onOpenCaseStudy }) =
             {/* Case Study Invitation CTA */}
             <div>
               <button
-                onClick={onOpenCaseStudy}
+                onClick={handleOpenCaseStudy}
                 className="inline-flex items-center gap-2.5 text-sm sm:text-base font-semibold text-white group cursor-pointer hover:text-neutral-200 transition-colors"
               >
                 <span className="border-b border-neutral-600 group-hover:border-white pb-0.5 transition-colors">
@@ -561,7 +571,12 @@ export const ProofSection: React.FC<ProofSectionProps> = ({ onOpenCaseStudy }) =
       </div>
     </div>
   </div>
-  </section>
+
+  <CaseStudyModal
+    isOpen={modalOpen}
+    onClose={() => setModalOpen(false)}
+  />
+</section>
 );
 };
 

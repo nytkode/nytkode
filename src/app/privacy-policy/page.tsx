@@ -1,30 +1,30 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/FooterSection";
-import { ContactModal } from "@/components/ContactModal";
 import { ArrowLeftIcon } from "@/components/Icons";
 
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Privacy policy and data protection practices for NytKode software systems, web services, and automation platforms.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy — NytKode",
+    description:
+      "Privacy policy and data protection practices for NytKode software and web services.",
+    url: "https://nytkode.com/privacy-policy",
+  },
+};
+
 export default function PrivacyPolicyPage() {
-  const [contactOpen, setContactOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
-
-  const handleOpenContact = (subject?: string) => {
-    setContactSubject(subject);
-    setContactOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactOpen(false);
-    setContactSubject(undefined);
-  };
-
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans">
       {/* 1. Navigation */}
-      <Navbar onTalkToUs={() => handleOpenContact()} initialTheme="dark" />
+      <Navbar initialTheme="dark" />
 
       <main className="flex-1 pt-28 sm:pt-36 pb-20 sm:pb-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,14 +134,7 @@ export default function PrivacyPolicyPage() {
       </main>
 
       {/* Footer */}
-      <FooterSection onTalkToUs={() => handleOpenContact()} theme="dark" />
-
-      {/* Interactive Contact Modal */}
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={handleCloseContact}
-        defaultSubject={contactSubject}
-      />
+      <FooterSection theme="dark" />
     </div>
   );
 }

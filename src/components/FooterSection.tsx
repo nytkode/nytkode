@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { NytKodeLogo } from "./NytKodeLogo";
 import { ArrowUpRightIcon, GithubIcon, TwitterIcon, LinkedinIcon } from "./Icons";
 import { useCalendly } from "@/context/CalendlyContext";
@@ -57,13 +58,13 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
           <div className="lg:col-span-3 flex flex-col justify-between space-y-8">
             {/* Transparent Large Logo */}
             <div>
-              <a
+              <Link
                 href="/"
                 aria-label="NytKode Home"
                 className="inline-block hover:opacity-90 transition-opacity"
               >
                 <NytKodeLogo size={180} variant={isLight ? "dark" : "light"} />
-              </a>
+              </Link>
             </div>
 
             {/* Social Icons Row */}
@@ -125,36 +126,36 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               }`}
             >
               <li>
-                <a
+                <Link
                   href="/products#mega"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   MEGA
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/products#agency-operations-platform"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Agency Operations Platform
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/products#acn"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   ACN - After Call Notify
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/products#project-igniter"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Project Igniter
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -174,44 +175,44 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               }`}
             >
               <li>
-                <a
+                <Link
                   href="/about"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/products"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Products
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/work"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Our Work
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/#community"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Community
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/blog"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
                 <button
@@ -293,18 +294,18 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               isLight ? "text-neutral-600" : "text-neutral-400"
             } text-xs`}
           >
-            <a
+            <Link
               href="/privacy-policy"
               className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors`}
             >
               PRIVACY POLICY
-            </a>
-            <a
+            </Link>
+            <Link
               href="/terms-and-conditions"
               className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors`}
             >
               TERMS &amp; CONDITIONS
-            </a>
+            </Link>
           </div>
         </div>
       </div>

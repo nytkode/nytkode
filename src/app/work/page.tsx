@@ -1,30 +1,30 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/FooterSection";
-import { ContactModal } from "@/components/ContactModal";
 import { ArrowRightIcon } from "@/components/Icons";
 
+export const metadata: Metadata = {
+  title: "Our Work & Production Case Studies",
+  description:
+    "Real systems engineered for operational reliability and business results. Explore our production case studies and operational workflows.",
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    title: "Our Work & Case Studies — NytKode Engineering in Production",
+    description:
+      "Real systems engineered for operational reliability and business results. Explore our production case studies.",
+    url: "https://nytkode.com/work",
+  },
+};
+
 export default function WorkPage() {
-  const [contactOpen, setContactOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
-
-  const handleOpenContact = (subject?: string) => {
-    setContactSubject(subject);
-    setContactOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactOpen(false);
-    setContactSubject(undefined);
-  };
-
   return (
     <div className="min-h-screen bg-white text-black flex flex-col font-sans">
       {/* 1. Navigation */}
-      <Navbar onTalkToUs={() => handleOpenContact()} initialTheme="light" />
+      <Navbar initialTheme="light" />
 
       <main className="flex-1 pt-28 sm:pt-36 pb-20 sm:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,14 +94,7 @@ export default function WorkPage() {
       </main>
 
       {/* Footer */}
-      <FooterSection onTalkToUs={() => handleOpenContact()} theme="dark" />
-
-      {/* Interactive Contact Modal */}
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={handleCloseContact}
-        defaultSubject={contactSubject}
-      />
+      <FooterSection theme="dark" />
     </div>
   );
 }

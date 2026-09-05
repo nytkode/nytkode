@@ -1,39 +1,34 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/FooterSection";
-import { ContactModal } from "@/components/ContactModal";
-import { useCalendly } from "@/context/CalendlyContext";
+import { BookCallButton } from "@/components/BookCallButton";
 import {
   ArrowRightIcon,
   ChevronRightIcon,
-  HospitalIcon,
-  BadgeCheckIcon,
-  ReplyIcon,
-  ListBulletIcon,
 } from "@/components/Icons";
 
+export const metadata: Metadata = {
+  title: "Healthcare Appointment Automation Case Study",
+  description:
+    "How NytKode engineered an automated WhatsApp appointment scheduling and routing system for multi-specialty clinics and doctors, handling 66+ bookings/month.",
+  alternates: {
+    canonical: "/work/healthcare-appointment-automation",
+  },
+  openGraph: {
+    title: "Healthcare Appointment Automation Case Study — NytKode",
+    description:
+      "Production case study: Multi-doctor, multi-location WhatsApp booking infrastructure handling 66+ appointments per month.",
+    url: "https://nytkode.com/work/healthcare-appointment-automation",
+  },
+};
+
 export default function HealthcareCaseStudyPage() {
-  const { openCalendly } = useCalendly();
-  const [contactOpen, setContactOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
-
-  const handleOpenContact = (subject?: string) => {
-    setContactSubject(subject);
-    setContactOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactOpen(false);
-    setContactSubject(undefined);
-  };
-
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans">
       {/* 1. Navigation */}
-      <Navbar onTalkToUs={() => handleOpenContact()} initialTheme="dark" />
+      <Navbar initialTheme="dark" />
 
       <main className="flex-1 pt-28 sm:pt-36 pb-20 sm:pb-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,26 +162,13 @@ export default function HealthcareCaseStudyPage() {
               </p>
             </div>
 
-            <button
-              onClick={() => openCalendly()}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-black bg-white hover:bg-neutral-200 transition-colors cursor-pointer shrink-0 shadow-md"
-            >
-              <span>Book a call</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </button>
+            <BookCallButton label="Book a call" />
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <FooterSection onTalkToUs={() => handleOpenContact()} theme="dark" />
-
-      {/* Interactive Contact Modal */}
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={handleCloseContact}
-        defaultSubject={contactSubject}
-      />
+      <FooterSection theme="dark" />
     </div>
   );
 }

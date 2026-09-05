@@ -1,6 +1,5 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ProofSection } from "@/components/ProofSection";
@@ -10,35 +9,34 @@ import { MegaProductShowcase } from "@/components/MegaProductShowcase";
 import { CommunitySection } from "@/components/CommunitySection";
 import { HowWeWorkSection } from "@/components/HowWeWorkSection";
 import { FooterSection } from "@/components/FooterSection";
-import { ContactModal } from "@/components/ContactModal";
-import { CaseStudyModal } from "@/components/CaseStudyModal";
+
+export const metadata: Metadata = {
+  title: "NytKode — Systems that generate more revenue in less time",
+  description:
+    "We build custom systems that help businesses win more customers, eliminate manual operational friction, and scale revenue.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "NytKode — Systems that generate more revenue in less time.",
+    description:
+      "We build systems that help businesses win more customers, save time, and get more done.",
+    url: "https://nytkode.com",
+  },
+};
 
 export default function HomePage() {
-  const [contactOpen, setContactOpen] = useState(false);
-  const [caseStudyOpen, setCaseStudyOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
-
-  const handleOpenContact = (subject?: string) => {
-    setContactSubject(subject);
-    setContactOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactOpen(false);
-    setContactSubject(undefined);
-  };
-
   return (
     <div className="min-h-screen bg-white text-black flex flex-col font-sans">
       {/* 1. Navigation */}
-      <Navbar onTalkToUs={() => handleOpenContact()} />
+      <Navbar />
 
       <main className="flex-1">
         {/* 2. Hero — WHITE */}
-        <HeroSection onTalkToUs={() => handleOpenContact()} />
+        <HeroSection />
 
         {/* 3. Proof — BLACK */}
-        <ProofSection onOpenCaseStudy={() => setCaseStudyOpen(true)} />
+        <ProofSection />
 
         {/* 4. Philosophy — WHITE */}
         <PhilosophySection />
@@ -47,7 +45,7 @@ export default function HomePage() {
         <WhatWeBuildSection />
 
         {/* 6. Commercial Products (MEGA Flagship + Agency Platform) — WHITE */}
-        <MegaProductShowcase onTalkToUs={handleOpenContact} />
+        <MegaProductShowcase />
 
         {/* 7. Community (ACN + Project Installer) — BLACK */}
         <CommunitySection />
@@ -56,21 +54,8 @@ export default function HomePage() {
         <HowWeWorkSection />
       </main>
 
-      {/* 10. Footer with Final CTA — BLACK */}
-      <FooterSection onTalkToUs={handleOpenContact} />
-
-      {/* Interactive Modals */}
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={handleCloseContact}
-        defaultSubject={contactSubject}
-      />
-
-      <CaseStudyModal
-        isOpen={caseStudyOpen}
-        onClose={() => setCaseStudyOpen(false)}
-        onTalkToUs={() => handleOpenContact("Healthcare Case Study Inquiry")}
-      />
+      {/* 9. Footer with Final CTA — BLACK */}
+      <FooterSection theme="dark" />
     </div>
   );
 }

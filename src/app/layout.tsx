@@ -9,33 +9,67 @@ const jaro = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "NytKode — Systems that generate more revenue in less time.",
+  metadataBase: new URL("https://nytkode.com"),
+  title: {
+    default: "NytKode — Systems that generate more revenue in less time.",
+    template: "%s | NytKode",
+  },
   description:
-    "We build systems that help businesses win more customers, save time, and get more done.",
+    "We engineer custom operational software and automation workflows that help businesses win more customers, eliminate manual busywork, and scale revenue.",
   keywords: [
     "NytKode",
     "Knight Code",
-    "B2B Software",
+    "Operational Software",
     "Business Automation",
     "Operational Infrastructure",
-    "MEGA Meta Automation",
+    "WhatsApp Automation",
     "WhatsApp Business API",
-    "Workflow Software",
+    "MEGA Meta Automation",
+    "Agency Operations Platform",
+    "Custom Business Systems",
     "ACN",
-    "Project Installer",
+    "Project Igniter",
   ],
-  authors: [{ name: "NytKode" }],
+  authors: [{ name: "NytKode", url: "https://nytkode.com" }],
+  creator: "NytKode",
+  publisher: "NytKode",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "NytKode — Systems that generate more revenue in less time.",
     description:
       "We build systems that help businesses win more customers, save time, and get more done.",
+    url: "https://nytkode.com",
     siteName: "NytKode",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "NytKode — Operational Software & Business Automation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NytKode — Systems that generate more revenue in less time.",
+    description:
+      "We build systems that help businesses win more customers, save time, and get more done.",
+    creator: "@nytkode",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [
@@ -56,6 +90,7 @@ export const viewport: Viewport = {
 
 import Script from "next/script";
 import { CalendlyProvider } from "@/context/CalendlyContext";
+import { ContactProvider } from "@/context/ContactContext";
 
 export default function RootLayout({
   children,
@@ -95,7 +130,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        <CalendlyProvider>{children}</CalendlyProvider>
+        <CalendlyProvider>
+          <ContactProvider>{children}</ContactProvider>
+        </CalendlyProvider>
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="afterInteractive"

@@ -1,29 +1,29 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
+import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { OriginDirectiveSection } from "@/components/OriginDirectiveSection";
 import { FooterSection } from "@/components/FooterSection";
-import { ContactModal } from "@/components/ContactModal";
+
+export const metadata: Metadata = {
+  title: "About Us — Engineering Operational Software",
+  description:
+    "Learn about NytKode's origin, philosophy, and mission to engineer deterministic operational systems that eliminate daily business friction.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About NytKode — Engineering Operational Software for Real Business Work",
+    description:
+      "We build software for the work businesses actually do. Learn about NytKode's founder, mission, and engineering principles.",
+    url: "https://nytkode.com/about",
+  },
+};
 
 export default function AboutPage() {
-  const [contactOpen, setContactOpen] = useState(false);
-  const [contactSubject, setContactSubject] = useState<string | undefined>(undefined);
-
-  const handleOpenContact = (subject?: string) => {
-    setContactSubject(subject);
-    setContactOpen(true);
-  };
-
-  const handleCloseContact = () => {
-    setContactOpen(false);
-    setContactSubject(undefined);
-  };
-
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans">
       {/* 1. Navigation */}
-      <Navbar onTalkToUs={() => handleOpenContact()} initialTheme="dark" />
+      <Navbar initialTheme="dark" />
 
       <main className="flex-1">
         {/* 2. Origin & Directive Section (Founder, Mission, Directives) */}
@@ -31,14 +31,7 @@ export default function AboutPage() {
       </main>
 
       {/* 3. Footer (Black Background with Final CTA) */}
-      <FooterSection onTalkToUs={handleOpenContact} theme="dark" />
-
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={handleCloseContact}
-        defaultSubject={contactSubject}
-      />
+      <FooterSection theme="dark" />
     </div>
   );
 }
