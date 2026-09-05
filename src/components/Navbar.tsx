@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
     { label: "Products", href: "/products" },
     { label: "Our Work", href: "/work" },
     { label: "Community", href: "/#community" },
-    { label: "Blog", href: "/blog" },
+    // { label: "Blog", href: "/blog" },
   ];
 
   const isDark = navTheme === "dark";

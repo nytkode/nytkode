@@ -206,14 +206,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                   Community
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/blog"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Blog
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <button
                   onClick={() => openCalendly()}
