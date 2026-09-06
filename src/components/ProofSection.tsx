@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import {
   ArrowRightIcon,
   ReplyIcon,
@@ -8,26 +9,12 @@ import {
   HospitalIcon,
   BadgeCheckIcon,
 } from "./Icons";
-import { CaseStudyModal } from "./CaseStudyModal";
 
-interface ProofSectionProps {
-  onOpenCaseStudy?: () => void;
-}
-
-export const ProofSection: React.FC<ProofSectionProps> = ({ onOpenCaseStudy }) => {
+export const ProofSection: React.FC = () => {
   const [step, setStep] = useState<number>(0);
   const [isInView, setIsInView] = useState<boolean>(false);
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const sectionRef = useRef<HTMLElement>(null);
   const chatScrollRef = useRef<HTMLDivElement>(null);
-
-  const handleOpenCaseStudy = () => {
-    if (onOpenCaseStudy) {
-      onOpenCaseStudy();
-    } else {
-      setModalOpen(true);
-    }
-  };
 
   // Observe when Proof section is in view
   useEffect(() => {
@@ -144,15 +131,15 @@ export const ProofSection: React.FC<ProofSectionProps> = ({ onOpenCaseStudy }) =
 
             {/* Case Study Invitation CTA */}
             <div>
-              <button
-                onClick={handleOpenCaseStudy}
+              <Link
+                href="/work/healthcare-appointment-automation"
                 className="inline-flex items-center gap-2.5 text-sm sm:text-base font-semibold text-white group cursor-pointer hover:text-neutral-200 transition-colors"
               >
                 <span className="border-b border-neutral-600 group-hover:border-white pb-0.5 transition-colors">
                   See what we built
                 </span>
                 <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -571,11 +558,6 @@ export const ProofSection: React.FC<ProofSectionProps> = ({ onOpenCaseStudy }) =
       </div>
     </div>
   </div>
-
-  <CaseStudyModal
-    isOpen={modalOpen}
-    onClose={() => setModalOpen(false)}
-  />
 </section>
 );
 };
