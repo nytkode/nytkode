@@ -71,7 +71,7 @@ export const OpenSourceSection: React.FC = () => {
           {/* GitHub CTA */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://github.com/nytkode"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold text-white bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.12] transition-colors"

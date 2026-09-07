@@ -91,6 +91,61 @@ export const viewport: Viewport = {
 import Script from "next/script";
 import { CalendlyProvider } from "@/context/CalendlyContext";
 import { ContactProvider } from "@/context/ContactContext";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nytkode.com/#organization",
+      "name": "NytKode",
+      "alternateName": ["Knight Code", "Nyt Kode"],
+      "url": "https://nytkode.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://nytkode.com/#logo",
+        "url": "https://nytkode.com/nytkode.svg",
+        "caption": "NytKode Logo",
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/nytkode",
+        "https://x.com/nytkode",
+        "https://www.instagram.com/nytkode/",
+        "https://www.facebook.com/profile.php?id=61594102536305",
+        "https://github.com/nytkode",
+        "https://github.com/vishesh-sachan"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Vishesh Sachan",
+        "jobTitle": "Founder & Software Engineer",
+        "url": "https://www.linkedin.com/in/vishesh-sachan",
+        "sameAs": [
+          "https://github.com/vishesh-sachan",
+          "https://www.linkedin.com/in/vishesh-sachan",
+          "https://x.com/visheshsachan21",
+          "https://www.instagram.com/visheshsachan01/"
+        ]
+      },
+      "description": "NytKode engineers custom operational software and automation workflows that help businesses win more customers, eliminate manual busywork, and scale revenue.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "vishesh@nytkode.com",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nytkode.com/#website",
+      "url": "https://nytkode.com",
+      "name": "NytKode",
+      "publisher": {
+        "@id": "https://nytkode.com/#organization"
+      },
+      "description": "Systems that generate more revenue in less time."
+    }
+  ]
+};
 
 export default function RootLayout({
   children,
@@ -100,6 +155,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${jaro.variable}`}>
       <head>
+        {/* Schema.org Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"

@@ -13,9 +13,9 @@ export const OriginDirectiveSection: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header & Origin Narrative */}
         <div className="mb-24 sm:mb-28">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-14 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-tight mb-14 sm:mb-16">
             Where NytKode comes from.
-          </h2>
+          </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             {/* Subheading / Core Premise (5 Cols) */}

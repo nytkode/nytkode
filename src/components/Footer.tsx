@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { GithubIcon, LinkedinIcon, TwitterIcon, ArrowUpRightIcon } from "./Icons";
+import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon, FacebookIcon, ArrowUpRightIcon } from "./Icons";
 
 export const Footer: React.FC = () => {
   return (
@@ -28,15 +28,6 @@ export const Footer: React.FC = () => {
 
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="w-8 h-8 rounded bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.1] hover:text-white flex items-center justify-center transition-colors"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
-              <a
                 href="https://www.linkedin.com/company/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -46,13 +37,40 @@ export const Footer: React.FC = () => {
                 <LinkedinIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
                 className="w-8 h-8 rounded bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.1] hover:text-white flex items-center justify-center transition-colors"
               >
                 <TwitterIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/nytkode/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-8 h-8 rounded bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.1] hover:text-white flex items-center justify-center transition-colors"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61594102536305"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-8 h-8 rounded bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.1] hover:text-white flex items-center justify-center transition-colors"
+              >
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://github.com/nytkode"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="w-8 h-8 rounded bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.1] hover:text-white flex items-center justify-center transition-colors"
+              >
+                <GithubIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

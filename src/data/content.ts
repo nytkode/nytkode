@@ -285,7 +285,7 @@ export const PRODUCT_LINES: ProductLine[] = [
       "Battle-tested developer experience utilities",
     ],
     ctaText: "View on GitHub",
-    ctaHref: "https://github.com",
+    ctaHref: "https://github.com/nytkode",
     badge: "PUBLIC TOOLING",
     isExternal: true,
   },

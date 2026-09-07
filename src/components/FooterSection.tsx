@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { NytKodeLogo } from "./NytKodeLogo";
-import { ArrowUpRightIcon, GithubIcon, TwitterIcon, LinkedinIcon } from "./Icons";
+import { ArrowUpRightIcon, GithubIcon, TwitterIcon, LinkedinIcon, InstagramIcon, FacebookIcon } from "./Icons";
 import { useCalendly } from "@/context/CalendlyContext";
 import { FinalCTASection } from "./FinalCTASection";
 
@@ -68,45 +68,71 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             </div>
 
             {/* Social Icons Row */}
-            <div className="flex items-center gap-3.5 pt-1 sm:pt-2 ml-7">
+            <div className="flex flex-wrap items-center gap-3 pt-1 sm:pt-2 ml-7">
               <a
                 href="https://www.linkedin.com/company/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                aria-label="NytKode on LinkedIn"
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
                 }`}
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Twitter / X"
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                aria-label="NytKode on X (Twitter)"
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
                 }`}
               >
-                <TwitterIcon className="w-4 h-4" />
+                <TwitterIcon className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://github.com/vishesh-sachan"
+                href="https://www.instagram.com/nytkode/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub"
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                aria-label="NytKode on Instagram"
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
                 }`}
               >
-                <GithubIcon className="w-4 h-4" />
+                <InstagramIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61594102536305"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="NytKode on Facebook"
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                  isLight
+                    ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
+                    : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
+                }`}
+              >
+                <FacebookIcon className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="https://github.com/nytkode"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="NytKode on GitHub"
+                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                  isLight
+                    ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
+                    : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
+                }`}
+              >
+                <GithubIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

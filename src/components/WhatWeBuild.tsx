@@ -96,7 +96,7 @@ export const WhatWeBuild: React.FC<WhatWeBuildProps> = ({ onOpenBooking }) => {
               <div className="pt-4 border-t border-white/[0.06]">
                 {product.isExternal ? (
                   <a
-                    href="https://github.com"
+                    href={product.ctaHref || "https://github.com/nytkode"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-mono text-zinc-300 hover:text-white transition-colors"
