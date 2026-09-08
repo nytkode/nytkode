@@ -96,7 +96,7 @@ export const OriginDirectiveSection: React.FC = () => {
                   <TwitterIcon className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://www.instagram.com/visheshsachan01/"
+                  href="https://www.instagram.com/visheshsachan21/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Vishesh Sachan on Instagram"

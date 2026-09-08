@@ -123,7 +123,7 @@ const jsonLd = {
           "https://github.com/vishesh-sachan",
           "https://www.linkedin.com/in/vishesh-sachan",
           "https://x.com/visheshsachan21",
-          "https://www.instagram.com/visheshsachan01/"
+          "https://www.instagram.com/visheshsachan21/"
         ]
       },
       "description": "NytKode engineers custom operational software and automation workflows that help businesses win more customers, eliminate manual busywork, and scale revenue.",
