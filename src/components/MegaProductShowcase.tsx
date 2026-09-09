@@ -117,7 +117,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 MEGA
               </span>
               <span className="text-xs font-mono text-neutral-500">
-                Meta Engagement &amp; Growth Automation
+                Multi-Channel Engagement &amp; Growth Automation
               </span>
             </div>
 

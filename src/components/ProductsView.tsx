@@ -131,7 +131,7 @@ export const ProductsView: React.FC = () => {
                   MEGA
                 </span>
                 <span className="text-xs font-mono text-neutral-500">
-                  Meta Engagement &amp; Growth Automation
+                  Multi-Channel Engagement &amp; Growth Automation
                 </span>
               </div>
 

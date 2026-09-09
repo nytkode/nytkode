@@ -99,8 +99,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                   onChange={(e) => setSubject(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-50 border border-neutral-300 text-neutral-900 focus:border-black focus:outline-none transition-colors"
                 >
-                  <option value="MEGA — Meta Engagement & Growth Automation">
-                    MEGA — Meta Engagement &amp; Growth Automation
+                  <option value="MEGA — Multi-Channel Engagement & Growth Automation">
+                    MEGA — Multi-Channel Engagement &amp; Growth Automation
                   </option>
                   <option value="Agency Operations Platform">
                     Agency Operations Platform

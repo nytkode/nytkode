@@ -5,7 +5,7 @@ import { ProductsView } from "@/components/ProductsView";
 export const metadata: Metadata = {
   title: "Commercial & Open Source Products",
   description:
-    "Explore NytKode's suite of operational products: MEGA for automated Meta messaging, Agency Operations Platform, ACN Android utility, and Project Igniter.",
+    "Explore NytKode's suite of operational products: MEGA for Multi-Channel Engagement & Growth Automation, Agency Operations Platform, ACN Android utility, and Project Igniter.",
   alternates: {
     canonical: "/products",
   },

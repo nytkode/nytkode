@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "Operational Infrastructure",
     "WhatsApp Automation",
     "WhatsApp Business API",
-    "MEGA Meta Automation",
+    "MEGA Multi-Channel Engagement & Growth Automation",
     "Agency Operations Platform",
     "Custom Business Systems",
     "ACN",
