@@ -1,12 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRightIcon } from "./Icons";
 
 export const CommunitySection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const yParallax1 = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const yParallax2 = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
   return (
-    <section id="community" data-theme="dark" className="bg-black text-white py-28 sm:py-36 lg:py-44 border-b border-neutral-800 relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="community"
+      data-theme="dark"
+      className="bg-black text-white py-28 sm:py-36 lg:py-44 border-b border-neutral-800 relative overflow-hidden"
+    >
       {/* Ambient Depth Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[650px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.06),transparent_70%)] pointer-events-none" />
 
@@ -87,7 +101,10 @@ export const CommunitySection: React.FC = () => {
 
             {/* Project 01 Visual: ACN Real Android App Screenshot (Right on Desktop) */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[300px] sm:max-w-[330px] rounded-2xl overflow-hidden shadow-2xl border border-neutral-800">
+              <motion.div
+                style={{ y: yParallax1 }}
+                className="relative w-full max-w-[300px] sm:max-w-[330px] rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 transition-all duration-500 hover:border-emerald-500/50 hover:shadow-[0_10px_40px_rgba(16,185,129,0.15)]"
+              >
                 <Image
                   src="/acn.png"
                   alt="ACN — After Call Notify Android App Interface"
@@ -96,7 +113,7 @@ export const CommunitySection: React.FC = () => {
                   className="w-full h-auto object-cover rounded-2xl"
                   priority={false}
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -151,7 +168,10 @@ export const CommunitySection: React.FC = () => {
 
             {/* Project 02 Visual: Project Igniter App Screenshot (Right on Desktop) */}
             <div className="lg:col-span-6 flex justify-center lg:justify-end">
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+              <motion.div
+                style={{ y: yParallax2 }}
+                className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-neutral-800 transition-all duration-500 hover:border-neutral-600 hover:shadow-[0_10px_40px_rgba(255,255,255,0.06)]"
+              >
                 <Image
                   src="/project-igniter.png"
                   alt="Project Igniter — Visual Workflow & Setup Engine"
@@ -160,7 +180,7 @@ export const CommunitySection: React.FC = () => {
                   className="w-full h-auto object-cover rounded-2xl"
                   priority={false}
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

@@ -19,9 +19,45 @@ export const metadata: Metadata = {
   },
 };
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://nytkode.com/about#webpage",
+      "url": "https://nytkode.com/about",
+      "name": "About NytKode — Engineering Operational Software",
+      "description":
+        "Learn about NytKode's origin, philosophy, and mission to engineer operational software systems that eliminate daily business friction.",
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://nytkode.com/#founder",
+        "name": "Vishesh Sachan",
+        "jobTitle": "Founder & Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://nytkode.com/#organization",
+          "name": "NytKode",
+        },
+        "url": "https://www.linkedin.com/in/vishesh-sachan",
+        "sameAs": [
+          "https://github.com/vishesh-sachan",
+          "https://www.linkedin.com/in/vishesh-sachan",
+          "https://x.com/visheshsachan21",
+          "https://www.instagram.com/visheshsachan21/",
+        ],
+      },
+    },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
+      />
       {/* 1. Navigation */}
       <Navbar initialTheme="dark" />
 

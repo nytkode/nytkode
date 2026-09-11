@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { FooterSection } from "@/components/FooterSection";
-import { useContact } from "@/context/ContactContext";
+import { useCalendly } from "@/context/CalendlyContext";
 import {
   ArrowRightIcon,
   ArrowUpRightIcon,
@@ -32,7 +32,7 @@ interface ChannelConversation {
 }
 
 export const ProductsView: React.FC = () => {
-  const { openContact } = useContact();
+  const { openCalendly } = useCalendly();
   const [activeChannel, setActiveChannel] = useState<"whatsapp" | "instagram" | "facebook" | "threads">("instagram");
   const [humanTakeover, setHumanTakeover] = useState(false);
 
@@ -121,9 +121,11 @@ export const ProductsView: React.FC = () => {
           </div>
 
           {/* ========================================================================= */}
-          {/* 01. MEGA — FLAGSHIP META AUTOMATION                                        */}
+          {/* 01. MEGA — MULTI-CHANNEL ENGAGEMENT & GROWTH AUTOMATION                   */}
           {/* ========================================================================= */}
-          <div id="mega" className="bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl mb-16 sm:mb-20 scroll-mt-28">
+          <div id="mega" className="group relative bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl mb-16 sm:mb-20 scroll-mt-28 overflow-hidden transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)]">
+            {/* Top Emerald Hover Accent Beam */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             {/* Header & Hierarchy */}
             <div className="max-w-4xl mb-12">
               <div className="flex items-center gap-2.5 mb-4">
@@ -136,7 +138,7 @@ export const ProductsView: React.FC = () => {
               </div>
 
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.06] mb-5">
-                One system for your entire Meta presence.
+                One system for your customer messaging channels.
               </h2>
 
               <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed max-w-3xl">
@@ -147,25 +149,27 @@ export const ProductsView: React.FC = () => {
             {/* MEGA DASHBOARD SHOWCASE (Interactive Workspace) */}
             <div className="bg-neutral-950 text-white border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-14">
               {/* Top Workspace Header Bar */}
-              <div className="bg-neutral-900/90 border-b border-neutral-800 px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-neutral-700" />
-                    <div className="w-3 h-3 rounded-full bg-neutral-700" />
-                    <div className="w-3 h-3 rounded-full bg-neutral-700" />
+              <div className="bg-neutral-900/90 border-b border-neutral-800 px-3.5 sm:px-6 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center justify-between w-full sm:w-auto">
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-700" />
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-700" />
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-700" />
+                    </div>
+                    <span className="text-xs font-mono text-neutral-400 font-medium pl-2 border-l border-neutral-800">
+                      MEGA Workspace
+                    </span>
                   </div>
-                  <span className="text-xs font-mono text-neutral-400 font-medium pl-2 border-l border-neutral-800">
-                    MEGA Workspace
-                  </span>
                 </div>
 
-                {/* Channel Tabs Bar */}
-                <div className="flex items-center gap-1.5 p-1 bg-black/50 rounded-lg border border-neutral-800 text-xs font-mono">
+                {/* Channel Tabs Bar - Clean mobile full-width row & desktop tabs */}
+                <div className="flex items-center gap-1 p-1 bg-black/60 rounded-xl border border-neutral-800/80 text-[11px] sm:text-xs font-mono w-full sm:w-auto overflow-x-auto no-scrollbar">
                   {(["instagram", "whatsapp", "facebook", "threads"] as const).map((ch) => (
                     <button
                       key={ch}
                       onClick={() => setActiveChannel(ch)}
-                      className={`px-3 py-1 rounded transition-all capitalize cursor-pointer ${
+                      className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3.5 py-1.5 sm:py-1 rounded-lg transition-all capitalize cursor-pointer whitespace-nowrap ${
                         activeChannel === ch
                           ? "bg-white text-black font-semibold shadow-xs"
                           : "text-neutral-400 hover:text-white"
@@ -191,7 +195,7 @@ export const ProductsView: React.FC = () => {
                       { label: "Comments", count: "24 Monitored" },
                       { label: "Contacts", count: "1,420" },
                       { label: "Analytics", count: "+38%" },
-                      { label: "Settings", count: "Meta API OK" },
+                      { label: "Settings", count: "Multi-Channel API OK" },
                     ].map((item) => (
                       <div
                         key={item.label}
@@ -210,7 +214,7 @@ export const ProductsView: React.FC = () => {
                   </div>
 
                   <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono">
-                    <div className="text-neutral-400">Meta API Status:</div>
+                    <div className="text-neutral-400">Channel Ingestion:</div>
                     <div className="text-emerald-400 font-semibold flex items-center gap-1.5 mt-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                       <span>Live &bull; Low Latency</span>
@@ -220,11 +224,11 @@ export const ProductsView: React.FC = () => {
 
                 {/* Center / Right: Live Channel Conversation Stream */}
                 <div className="md:col-span-9 flex flex-col justify-between p-4 sm:p-6 lg:p-7 bg-neutral-950">
-                  {/* Active Thread Meta Card */}
+                  {/* Active Thread Card */}
                   <div>
-                    <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-neutral-800/80">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-neutral-800/80">
                       <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span className="text-sm sm:text-base font-bold text-white">
                             {currentConv.customer}
                           </span>
@@ -237,7 +241,7 @@ export const ProductsView: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="text-xs font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-neutral-300">
                           {currentConv.tag}
                         </span>
@@ -372,7 +376,7 @@ export const ProductsView: React.FC = () => {
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <button
-                  onClick={() => openContact("Deploy MEGA")}
+                  onClick={() => openCalendly()}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-xs font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
                 >
                   <span>Request Deployment</span>
@@ -385,42 +389,33 @@ export const ProductsView: React.FC = () => {
           {/* ========================================================================= */}
           {/* 02. AGENCY OPERATIONS PLATFORM                                            */}
           {/* ========================================================================= */}
-          <div id="agency-operations-platform" className="bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl mb-16 sm:mb-20 scroll-mt-28">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-              <div className="max-w-3xl">
-                <div className="flex flex-wrap items-center gap-3 mb-6">
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-xs font-mono font-bold tracking-widest uppercase bg-black text-white px-3 py-1 rounded">
-                      AOP
-                    </span>
-                    <span className="text-xs font-mono text-neutral-500">
-                      Agency Operations Platform
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 text-[11px] font-mono text-neutral-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                    <span>In development</span>
-                  </div>
+          <div id="agency-operations-platform" className="group relative bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl mb-16 sm:mb-20 scroll-mt-28 overflow-hidden transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)]">
+            {/* Top Emerald Hover Accent Beam */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+            <div className="max-w-3xl">
+              <div className="flex flex-wrap items-center gap-3 mb-6">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs font-mono font-bold tracking-widest uppercase bg-black text-white px-3 py-1 rounded">
+                    AOP
+                  </span>
+                  <span className="text-xs font-mono text-neutral-500">
+                    Agency Operations Platform
+                  </span>
                 </div>
-
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.06] mb-4">
-                  Operations built for marketing agencies.
-                </h2>
-
-                <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-                  A purpose-built operational system for small and medium-sized marketing agencies to organize clients, assets, delivery pipelines, and day-to-day operations in one unified workspace.
-                </p>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 text-[11px] font-mono text-neutral-700">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                  <span>In development</span>
+                </div>
               </div>
 
-              <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <button
-                  onClick={() => openContact("Agency Operations Platform — Early Access")}
-                  className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-xs font-mono font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
-                >
-                  <span>Get Notified for Early Access</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
-                </button>
-              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.06] mb-4">
+                Operations built for marketing agencies.
+              </h2>
+
+              <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+                A purpose-built operational system for small and medium-sized marketing agencies to organize clients, assets, delivery pipelines, and day-to-day operations in one unified workspace.
+              </p>
             </div>
           </div>
 
@@ -429,7 +424,10 @@ export const ProductsView: React.FC = () => {
           {/* ========================================================================= */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* ACN */}
-            <div id="acn" className="bg-neutral-950 text-white border border-neutral-800 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between scroll-mt-28">
+            <div id="acn" className="group relative bg-neutral-950 text-white border border-neutral-800 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between scroll-mt-28 overflow-hidden transition-all duration-500 hover:border-emerald-500/50 hover:shadow-[0_10px_40px_rgba(16,185,129,0.12)]">
+              {/* Top Emerald Hover Accent Beam */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <div className="flex items-center gap-2.5">
@@ -479,7 +477,7 @@ export const ProductsView: React.FC = () => {
             </div>
 
             {/* Project Igniter */}
-            <div id="project-igniter" className="bg-neutral-950 text-white border border-neutral-800 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between scroll-mt-28">
+            <div id="project-igniter" className="group relative bg-neutral-950 text-white border border-neutral-800 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl flex flex-col justify-between scroll-mt-28 overflow-hidden transition-all duration-500 hover:border-neutral-600 hover:shadow-[0_10px_40px_rgba(255,255,255,0.06)]">
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <div className="flex items-center gap-2.5">

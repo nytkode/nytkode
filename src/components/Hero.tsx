@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       short: "Rapidly engineer bespoke infrastructure for one business",
       detail:
         "We build direct integrations, webhook pipelines, and robust backend logic tailored to their exact workflow.",
-      example: "Built automated Meta API booking & reminder engine",
+      example: "Built automated messaging API booking & reminder engine",
     },
     {
       id: "deploy",
@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       short: "Abstract and turn what works into a repeatable product",
       detail:
         "Once verified under pressure, the core architecture is standardized into an industry-ready product line.",
-      example: "Turnkey Meta Automation Tool & Drive CMS",
+      example: "Turnkey Multi-Channel Automation Tool & Drive CMS",
     },
   ];
 

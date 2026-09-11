@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { TechMarquee } from "@/components/TechMarquee";
 import { ProofSection } from "@/components/ProofSection";
 import { PhilosophySection } from "@/components/PhilosophySection";
 import { WhatWeBuildSection } from "@/components/WhatWeBuildSection";
@@ -34,6 +35,9 @@ export default function HomePage() {
       <main className="flex-1">
         {/* 2. Hero — WHITE */}
         <HeroSection />
+
+        {/* Technical Velocity Marquee — BLACK */}
+        <TechMarquee />
 
         {/* 3. Proof — BLACK */}
         <ProofSection />

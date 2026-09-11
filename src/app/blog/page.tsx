@@ -59,7 +59,7 @@ export default function BlogPage() {
       internalHref: "/products",
     },
     {
-      slug: "meta-automation-architecture",
+      slug: "multi-channel-messaging-architecture",
       category: "Systems Engineering",
       date: "January 2026",
       readTime: "6 min read",

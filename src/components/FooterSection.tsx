@@ -55,26 +55,26 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
         {/* Top Content Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 pb-16 sm:pb-24">
           {/* Column 1: Brand Emblem & Social Media (Left 3 cols) */}
-          <div className="lg:col-span-3 flex flex-col justify-between space-y-8">
-            {/* Transparent Large Logo */}
+          <div className="lg:col-span-3 flex flex-col justify-start space-y-6">
+            {/* Standard Canonical Logo */}
             <div>
               <Link
                 href="/"
                 aria-label="NytKode Home"
                 className="inline-block hover:opacity-90 transition-opacity"
               >
-                <NytKodeLogo size={180} variant={isLight ? "dark" : "light"} />
+                <NytKodeLogo size={84} variant={isLight ? "dark" : "light"} />
               </Link>
             </div>
 
             {/* Social Icons Row */}
-            <div className="flex flex-wrap items-center gap-3 pt-1 sm:pt-2 ml-7">
+            <div className="flex flex-wrap items-center gap-2.5">
               <a
                 href="https://www.linkedin.com/company/nytkode"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="NytKode on LinkedIn"
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
@@ -87,7 +87,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="NytKode on X (Twitter)"
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
@@ -100,7 +100,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="NytKode on Instagram"
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
@@ -113,7 +113,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="NytKode on Facebook"
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
@@ -126,7 +126,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="NytKode on GitHub"
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer ${
+                className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer ${
                   isLight
                     ? "bg-black/5 border border-black/10 hover:border-black/30 hover:bg-black/10 text-neutral-700 hover:text-black"
                     : "bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 text-neutral-300 hover:text-white"
@@ -134,6 +134,34 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               >
                 <GithubIcon className="w-3.5 h-3.5" />
               </a>
+            </div>
+
+            {/* Founder Attribution & Mission Byline */}
+            <div className="pt-2">
+              <Link
+                href="/about"
+                className={`group inline-flex flex-col text-[11px] font-mono leading-relaxed transition-colors ${
+                  isLight
+                    ? "text-neutral-500 hover:text-neutral-900"
+                    : "text-neutral-500 hover:text-neutral-200"
+                }`}
+              >
+                <span>
+                  Founded by{" "}
+                  <span
+                    className={
+                      isLight
+                        ? "text-neutral-900 font-medium group-hover:underline"
+                        : "text-neutral-300 font-medium group-hover:underline"
+                    }
+                  >
+                    Vishesh Sachan
+                  </span>
+                </span>
+                <span className="text-[10px] text-neutral-500">
+                  Engineering Operational Software
+                </span>
+              </Link>
             </div>
           </div>
 

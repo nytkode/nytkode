@@ -8,16 +8,8 @@ interface FinalCTASectionProps {
   onTalkToUs?: (subject?: string) => void;
 }
 
-export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onTalkToUs }) => {
+export const FinalCTASection: React.FC<FinalCTASectionProps> = () => {
   const { openCalendly } = useCalendly();
-
-  const handleAction = () => {
-    if (onTalkToUs) {
-      onTalkToUs("Final CTA Inquiry — Let's build something better");
-    } else {
-      openCalendly();
-    }
-  };
 
   return (
     <section

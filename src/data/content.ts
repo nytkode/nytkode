@@ -114,14 +114,14 @@ export const PROBLEM_CATEGORIES: ProblemCategory[] = [
     detailedPain:
       "Front-desk staff drowning in manual WhatsApp chats, patient appointment confirmations slipping through the cracks, and high no-show rates costing thousands weekly.",
     solutionOutcome:
-      "24/7 automated Meta API booking agents, two-way automated SMS/WhatsApp reminders, and instant lead qualification directly into the scheduling calendar.",
+      "24/7 automated messaging & booking agents, two-way automated SMS/WhatsApp reminders, and instant lead qualification directly into the scheduling calendar.",
     symptoms: [
       "Staff typing manual booking confirmations during busy clinic hours",
       "No-shows exceeding 18-25% due to missed reminder touchpoints",
       "Leads dropping off during late evenings and weekends",
     ],
     metricsImpact: "-85% No-shows | 100% 24/7 Response Rate",
-    solutionTags: ["WhatsApp Business API", "Meta Graph API", "Webhook Engine", "Auto-Rescheduling"],
+    solutionTags: ["WhatsApp Business API", "Official Cloud APIs", "Webhook Engine", "Auto-Rescheduling"],
   },
   {
     id: "agencies",
@@ -178,23 +178,23 @@ export const PROBLEM_CATEGORIES: ProblemCategory[] = [
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: "meta-tooling",
-    title: "WhatsApp & Meta Business Tooling",
+    id: "messaging-tooling",
+    title: "WhatsApp & Customer Messaging Automation",
     industry: "Aesthetic & Dental Clinics",
     subtitle: "Eliminating booking chaos and no-shows for high-volume clinics",
     challenge:
       "Clinics were losing over 20% of their prospective bookings due to slow manual WhatsApp replies during peak hours, while front desk staff spent hours every morning manually texting patients for confirmations.",
     solution:
-      "We engineered an event-driven automation engine built directly on Meta's Cloud API. It handles instant inbound lead qualification, interactive calendar booking directly inside the chat UI, multi-stage automated reminder cadences with one-tap confirm/reschedule, and seamless human handoff.",
+      "We engineered an event-driven automation engine built directly on official cloud messaging APIs. It handles instant inbound lead qualification, interactive calendar booking directly inside the chat UI, multi-stage automated reminder cadences with one-tap confirm/reschedule, and seamless human handoff.",
     results: [
       { label: "No-Show Reduction", value: "-85%" },
       { label: "Response Latency", value: "< 2.4 sec" },
       { label: "Staff Hours Saved", value: "22 hrs/wk" },
       { label: "After-Hours Bookings", value: "+34%" },
     ],
-    tags: ["WhatsApp API", "Meta Cloud", "Automation", "Healthcare Ops"],
+    tags: ["WhatsApp API", "Cloud Messaging", "Automation", "Healthcare Ops"],
     architectureSnippet: {
-      input: "Inbound WhatsApp Webhook (Meta API)",
+      input: "Inbound WhatsApp / Messaging Webhook",
       processing: "State Engine + Clinic Calendar Sync + CRM Webhook",
       output: "Instant Interactive Booking Link + Automated Reminder Cadence",
     },
@@ -231,7 +231,7 @@ export const PRODUCT_LINES: ProductLine[] = [
     description:
       "High-throughput communication engines built on top of official APIs. Transform unstructured customer chats into structured operational transactions.",
     features: [
-      "WhatsApp & Meta Business API direct integration",
+      "WhatsApp & Multi-Channel Official API direct integration",
       "Automated booking, rescheduling, and two-way reminders",
       "Intelligent lead qualification and pipeline routing",
       "24/7 deterministic automated response systems with staff takeover",
@@ -304,7 +304,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     category: "Identity",
     question: "Is NytKode a SaaS company?",
     answer:
-      "Not exclusively. Generic SaaS companies build speculative products and hunt for generic markets. We do the inverse: we solve an expensive, real operational problem for one business first. Once the solution is battle-tested under live fire, we standardize what repeats into dedicated product lines (like Drive CMS and our Meta Tooling). We are infrastructure-first, not speculative product-first.",
+      "Not exclusively. Generic SaaS companies build speculative products and hunt for generic markets. We do the inverse: we solve an expensive, real operational problem for one business first. Once the solution is battle-tested under live fire, we standardize what repeats into dedicated product lines (like Drive CMS and our Messaging Tooling). We are infrastructure-first, not speculative product-first.",
   },
   {
     id: "industries",

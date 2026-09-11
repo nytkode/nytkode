@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 
 export const HowWeWorkSection: React.FC = () => {
   const steps = [
@@ -38,17 +39,31 @@ export const HowWeWorkSection: React.FC = () => {
     <section id="method" data-theme="light" className="bg-white text-black py-28 sm:py-36 border-b border-neutral-200 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-3xl mb-20"
+        >
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-950 leading-tight">
             How we turn problems into systems.
           </h2>
-        </div>
+        </motion.div>
 
         {/* Editorial 3-Column Sequence with Oversized Numbers */}
         <div className="space-y-4">
-          {steps.map((step) => (
-            <div
+          {steps.map((step, idx) => (
+            <motion.div
               key={step.num}
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="border-t border-neutral-200 py-12 sm:py-16 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
             >
               {/* Column 1: Oversized Number (Left 3 cols) */}
@@ -74,7 +89,7 @@ export const HowWeWorkSection: React.FC = () => {
                   {step.detail}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

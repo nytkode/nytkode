@@ -41,7 +41,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   if (!isOpen) return null;
 
   const categories = [
-    "WhatsApp & Meta API Automation",
+    "WhatsApp & Multi-Channel API Automation",
     "Agency Workflow & Drive CMS",
     "Spreadsheet Replacement & DB Sync",
     "Custom Internal System / Integration",

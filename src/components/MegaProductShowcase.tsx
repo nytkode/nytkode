@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon, CheckIcon, MessageSquareIcon, WorkflowIcon, SparklesIcon, ShieldCheckIcon, ChevronRightIcon, ReplyIcon } from "./Icons";
 import { useCalendly } from "@/context/CalendlyContext";
 
@@ -92,9 +93,20 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
   ];
 
   const currentConv = demoConversations[activeChannel];
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const yParallax = useTransform(scrollYProgress, [0, 1], [25, -25]);
 
   return (
-    <section id="products" data-theme="light" className="bg-white text-black py-28 sm:py-36 border-b border-neutral-200 relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="products"
+      data-theme="light"
+      className="bg-white text-black py-28 sm:py-36 border-b border-neutral-200 relative overflow-hidden"
+    >
       {/* Ambient Studio Depth Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1300px] h-[700px] bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.03),transparent_70%)] pointer-events-none" />
 
@@ -109,7 +121,10 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
         {/* ========================================================================= */}
         {/* MEGA — PRIMARY PRODUCT SHOWCASE                                           */}
         {/* ========================================================================= */}
-        <div className="bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl mb-24">
+        <div className="group relative bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl mb-24 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)] overflow-hidden">
+          {/* Top Emerald Hover Accent Beam */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
           {/* Header & Hierarchy */}
           <div className="max-w-4xl mb-12">
             <div className="flex items-center gap-2.5 mb-4">
@@ -122,7 +137,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
             </div>
 
             <h3 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-950 leading-[1.02] mb-6">
-              One system for your entire Meta presence.
+              One system for your customer messaging channels.
             </h3>
 
             <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed max-w-3xl">
@@ -133,27 +148,32 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
           {/* ========================================================================= */}
           {/* LARGE MEGA DASHBOARD SHOWCASE (Unified Inbox & Production Workspace)      */}
           {/* ========================================================================= */}
-          <div className="bg-neutral-950 text-white border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16">
+          <motion.div
+            style={{ y: yParallax }}
+            className="bg-neutral-950 text-white border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl mb-16 transition-shadow duration-500 hover:border-neutral-700"
+          >
             {/* Top Workspace Header Bar */}
-            <div className="bg-neutral-900/90 border-b border-neutral-800 px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-neutral-700" />
-                  <div className="w-3 h-3 rounded-full bg-neutral-700" />
-                  <div className="w-3 h-3 rounded-full bg-neutral-700" />
+            <div className="bg-neutral-900/90 border-b border-neutral-800 px-3.5 sm:px-6 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="flex items-center justify-between w-full sm:w-auto">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-700" />
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-700" />
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-neutral-700" />
+                  </div>
+                  <span className="text-xs font-mono text-neutral-400 font-medium pl-2 border-l border-neutral-800">
+                    MEGA Workspace
+                  </span>
                 </div>
-                <span className="text-xs font-mono text-neutral-400 font-medium pl-2 border-l border-neutral-800">
-                  MEGA Workspace
-                </span>
               </div>
 
-              {/* Channel Tabs Bar */}
-              <div className="flex items-center gap-1.5 p-1 bg-black/50 rounded-lg border border-neutral-800 text-xs font-mono">
+              {/* Channel Tabs Bar - Clean mobile full-width row & desktop tabs */}
+              <div className="flex items-center gap-1 p-1 bg-black/60 rounded-xl border border-neutral-800/80 text-[11px] sm:text-xs font-mono w-full sm:w-auto overflow-x-auto no-scrollbar">
                 {(["instagram", "whatsapp", "facebook", "threads"] as const).map((ch) => (
                   <button
                     key={ch}
                     onClick={() => setActiveChannel(ch)}
-                    className={`px-3 py-1 rounded transition-all capitalize cursor-pointer ${
+                    className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3.5 py-1.5 sm:py-1 rounded-lg transition-all capitalize cursor-pointer whitespace-nowrap ${
                       activeChannel === ch
                         ? "bg-white text-black font-semibold shadow-xs"
                         : "text-neutral-400 hover:text-white"
@@ -179,7 +199,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                     { label: "Comments", count: "24 Monitored" },
                     { label: "Contacts", count: "1,420" },
                     { label: "Analytics", count: "+38%" },
-                    { label: "Settings", count: "Meta API OK" },
+                    { label: "Settings", count: "APIs Connected" },
                   ].map((item) => (
                     <div
                       key={item.label}
@@ -198,10 +218,10 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 </div>
 
                 <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono">
-                  <div className="text-neutral-400">Meta API Status:</div>
+                  <div className="text-neutral-400">Channel Ingestion:</div>
                   <div className="text-emerald-400 font-semibold flex items-center gap-1.5 mt-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>GRAPH API CONNECTED</span>
+                    <span>LIVE &amp; CONNECTED</span>
                   </div>
                 </div>
               </div>
@@ -209,32 +229,36 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               {/* Center: Conversation Stream & Message Composer */}
               <div className="md:col-span-9 flex flex-col justify-between p-4 sm:p-6 bg-black/40 h-full">
                 <div className="flex flex-col flex-1">
-                  {/* Conversation Header */}
-                  <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-neutral-800 shrink-0">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-bold text-white text-base">
+                  {/* Conversation Header — Mobile-responsive layout */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 mb-4 border-b border-neutral-800 shrink-0">
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h4 className="font-bold text-white text-sm sm:text-base truncate">
                           {currentConv.customer}
                         </h4>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-neutral-300">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-neutral-300 shrink-0">
                           {currentConv.channelLabel}
                         </span>
                       </div>
-                      <div className="text-xs text-neutral-500 font-mono mt-0.5">
-                        {currentConv.handle} &bull; {currentConv.tag}
+                      <div className="text-[11px] sm:text-xs text-neutral-500 font-mono mt-1 flex flex-wrap items-center gap-1.5">
+                        <span>{currentConv.handle}</span>
+                        <span>&bull;</span>
+                        <span className="text-emerald-400/90">{currentConv.tag}</span>
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => setHumanTakeover(!humanTakeover)}
-                      className={`text-xs font-mono px-3 py-1.5 rounded-lg border transition-colors cursor-pointer ${
-                        humanTakeover
-                          ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
-                          : "bg-white/5 text-neutral-400 border-white/10 hover:text-white"
-                      }`}
-                    >
-                      {humanTakeover ? "Staff Takeover Active" : "Take Over Live"}
-                    </button>
+                    <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto">
+                      <button
+                        onClick={() => setHumanTakeover(!humanTakeover)}
+                        className={`text-[11px] sm:text-xs font-mono px-3 py-1.5 rounded-lg border transition-colors cursor-pointer shrink-0 ${
+                          humanTakeover
+                            ? "bg-amber-500/20 text-amber-300 border-amber-500/40"
+                            : "bg-white/5 text-neutral-400 border-white/10 hover:text-white"
+                        }`}
+                      >
+                        {humanTakeover ? "Staff Takeover Active" : "Take Over Live"}
+                      </button>
+                    </div>
                   </div>
 
                   {/* Message Stream — Spacious view showing full conversation, with natural space below shorter chats */}
@@ -301,7 +325,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                       className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 focus:outline-none font-mono"
                     />
                     <button
-                      onClick={() => onTalkToUs?.("MEGA Live Demo")}
+                      onClick={() => openCalendly()}
                       className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs font-mono shrink-0 hover:bg-neutral-200 transition-colors cursor-pointer"
                     >
                       Send
@@ -310,7 +334,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* ========================================================================= */}
           {/* MODULAR CHANNEL CAPABILITIES                                              */}
@@ -330,7 +354,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 {
                   title: "WhatsApp Automation",
                   desc: "Automate enquiries, follow-ups, customer conversations, lead capture and appointment workflows.",
-                  tag: "META CLOUD API",
+                  tag: "OFFICIAL CLOUD API",
                 },
                 {
                   title: "Instagram Automation",
@@ -385,7 +409,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 One interaction can trigger an entire workflow.
               </h4>
               <p className="text-xs sm:text-sm text-neutral-400 mt-2">
-                One automation engine across your Meta channels — from the first public comment to the confirmed sale.
+                One automation engine across your customer communications — from the first public comment to the confirmed sale.
               </p>
             </div>
 
@@ -487,7 +511,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
           <div className="pt-8 border-t border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h4 className="text-xl font-bold text-neutral-950">
-                Start automating your Meta presence.
+                Start automating your customer operations.
               </h4>
               <p className="text-xs sm:text-sm text-neutral-600 mt-0.5">
                 Choose the channels and workflows your business needs.
@@ -496,18 +520,11 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
-                onClick={() => onTalkToUs?.("Explore MEGA")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-xs font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
-              >
-                <span>Explore MEGA</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
-              </button>
-
-              <button
                 onClick={() => openCalendly()}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs font-semibold text-neutral-900 bg-neutral-200 hover:bg-neutral-300 transition-colors cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-xs font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
               >
                 <span>Book a call</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
@@ -516,43 +533,34 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
         {/* ========================================================================= */}
         {/* SECOND COMMERCIAL PRODUCT (Agency Operations Platform)                   */}
         {/* ========================================================================= */}
-        <div className="bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-            <div className="max-w-3xl">
-              {/* Product Badge & Name in same style as MEGA + In Development status */}
-              <div className="flex flex-wrap items-center gap-3 mb-6">
-                <div className="flex items-center gap-2.5">
-                  <span className="text-xs font-mono font-bold tracking-widest uppercase bg-black text-white px-3 py-1 rounded">
-                    AOP
-                  </span>
-                  <span className="text-xs font-mono text-neutral-500">
-                    Agency Operations Platform
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 text-[11px] font-mono text-neutral-700">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-                  <span>In development</span>
-                </div>
+        <div className="group relative bg-neutral-50 border border-neutral-200 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl overflow-hidden transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_20px_50px_rgba(16,185,129,0.08)]">
+          {/* Top Emerald Hover Accent Beam */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+          <div className="max-w-3xl">
+            {/* Product Badge & Name in same style as MEGA + In Development status */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-mono font-bold tracking-widest uppercase bg-black text-white px-3 py-1 rounded">
+                  AOP
+                </span>
+                <span className="text-xs font-mono text-neutral-500">
+                  Agency Operations Platform
+                </span>
               </div>
-
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.06] mb-4">
-                Operations built for marketing agencies.
-              </h3>
-
-              <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-                A purpose-built operational system for small and medium-sized marketing agencies to organize clients, assets, workflows and day-to-day operations.
-              </p>
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300/80 text-[11px] font-mono text-neutral-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                <span>In development</span>
+              </div>
             </div>
 
-            <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-              <button
-                onClick={() => onTalkToUs?.("Agency Operations Platform — Early Access")}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-xs font-mono font-semibold text-white bg-black hover:bg-neutral-800 transition-colors cursor-pointer shadow-sm"
-              >
-                <span>Coming soon &bull; Get Notified</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
-              </button>
-            </div>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-neutral-950 leading-[1.06] mb-4">
+              Operations built for marketing agencies.
+            </h3>
+
+            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+              A purpose-built operational system for small and medium-sized marketing agencies to organize clients, assets, workflows and day-to-day operations.
+            </p>
           </div>
         </div>
       </div>
