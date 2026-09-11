@@ -1,0 +1,670 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 950" width="100%" height="100%">
+  <defs>
+    <!-- ======================================================== -->
+    <!-- METALLIC SILVER GRADIENTS                                -->
+    <!-- ======================================================== -->
+    <linearGradient id="silver-helm-dome" x1="25%" y1="0%" x2="75%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="20%" stop-color="#F4F4F5" />
+      <stop offset="45%" stop-color="#D4D4D8" />
+      <stop offset="75%" stop-color="#A1A1AA" />
+      <stop offset="90%" stop-color="#71717A" />
+      <stop offset="100%" stop-color="#3F3F46" />
+    </linearGradient>
+
+    <linearGradient id="silver-bright" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#E4E4E7" />
+      <stop offset="80%" stop-color="#A1A1AA" />
+      <stop offset="100%" stop-color="#71717A" />
+    </linearGradient>
+
+    <linearGradient id="silver-rim-metal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#E4E4E7" />
+      <stop offset="70%" stop-color="#A1A1AA" />
+      <stop offset="100%" stop-color="#52525B" />
+    </linearGradient>
+
+    <linearGradient id="silver-dark-bevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A1A1AA" />
+      <stop offset="50%" stop-color="#71717A" />
+      <stop offset="100%" stop-color="#27272A" />
+    </linearGradient>
+
+    <radialGradient id="silver-sphere" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#E4E4E7" />
+      <stop offset="70%" stop-color="#A1A1AA" />
+      <stop offset="100%" stop-color="#52525B" />
+    </radialGradient>
+
+    <!-- ======================================================== -->
+    <!-- ARMOR CHARCOAL & DEEP BLACK GRADIENTS                    -->
+    <!-- ======================================================== -->
+    <linearGradient id="armor-black-grad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#323238" />
+      <stop offset="35%" stop-color="#1F1F24" />
+      <stop offset="75%" stop-color="#111115" />
+      <stop offset="100%" stop-color="#07070A" />
+    </linearGradient>
+
+    <linearGradient id="armor-charcoal-plate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3F3F46" />
+      <stop offset="40%" stop-color="#27272A" />
+      <stop offset="85%" stop-color="#141416" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+
+    <radialGradient id="armor-pauldron-sphere" cx="38%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#4A4A52" />
+      <stop offset="35%" stop-color="#27272A" />
+      <stop offset="75%" stop-color="#121215" />
+      <stop offset="100%" stop-color="#07070A" />
+    </radialGradient>
+
+    <!-- ======================================================== -->
+    <!-- VISOR GLASS & SCREEN GRADIENTS                           -->
+    <!-- ======================================================== -->
+    <radialGradient id="visor-glass-depth" cx="42%" cy="36%" r="72%">
+      <stop offset="0%" stop-color="#27272E" />
+      <stop offset="35%" stop-color="#18181D" />
+      <stop offset="70%" stop-color="#0B0B0F" />
+      <stop offset="100%" stop-color="#030305" />
+    </radialGradient>
+
+    <linearGradient id="visor-glare" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.32" />
+      <stop offset="25%" stop-color="#FFFFFF" stop-opacity="0.12" />
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- ======================================================== -->
+    <!-- NYTKODE RED & PLUME GRADIENTS                            -->
+    <!-- ======================================================== -->
+    <linearGradient id="red-plume-main" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#FF385C" />
+      <stop offset="25%" stop-color="#E11D48" />
+      <stop offset="55%" stop-color="#C3191F" />
+      <stop offset="85%" stop-color="#881337" />
+      <stop offset="100%" stop-color="#4C0519" />
+    </linearGradient>
+
+    <linearGradient id="red-plume-back" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9F1239" />
+      <stop offset="50%" stop-color="#881337" />
+      <stop offset="100%" stop-color="#38040E" />
+    </linearGradient>
+
+    <linearGradient id="red-cape-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="35%" stop-color="#C3191F" />
+      <stop offset="70%" stop-color="#991B1B" />
+      <stop offset="90%" stop-color="#6B0A11" />
+      <stop offset="100%" stop-color="#450508" />
+    </linearGradient>
+
+    <linearGradient id="red-accent-core" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4D4D" />
+      <stop offset="50%" stop-color="#C3191F" />
+      <stop offset="100%" stop-color="#800A0E" />
+    </linearGradient>
+
+    <!-- ======================================================== -->
+    <!-- SWORD & SHIELD GRADIENTS                                 -->
+    <!-- ======================================================== -->
+    <linearGradient id="sword-blade-silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#E4E4E7" />
+      <stop offset="70%" stop-color="#A1A1AA" />
+      <stop offset="100%" stop-color="#52525B" />
+    </linearGradient>
+
+    <linearGradient id="sword-energy-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="40%" stop-color="#E11D48" />
+      <stop offset="75%" stop-color="#C3191F" />
+      <stop offset="100%" stop-color="#7F1D1D" />
+    </linearGradient>
+
+    <radialGradient id="shield-face-depth" cx="38%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#34343D" />
+      <stop offset="35%" stop-color="#1E1E24" />
+      <stop offset="70%" stop-color="#0E0E12" />
+      <stop offset="100%" stop-color="#050508" />
+    </radialGradient>
+
+    <linearGradient id="shield-rim-silver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#E4E4E7" />
+      <stop offset="50%" stop-color="#A1A1AA" />
+      <stop offset="75%" stop-color="#D4D4D8" />
+      <stop offset="100%" stop-color="#52525B" />
+    </linearGradient>
+
+    <!-- ======================================================== -->
+    <!-- FILTERS                                                  -->
+    <!-- ======================================================== -->
+    <filter id="eye-glow-soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="blur2" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="shadow-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="9" />
+    </filter>
+
+    <filter id="shield-drop-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" />
+      <feOffset dx="4" dy="8" />
+      <feComponentTransfer><feFuncA type="linear" slope="0.45" /></feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ========================================================== -->
+  <!-- 00. ROOT CHARACTER MASTER GROUP                            -->
+  <!-- ========================================================== -->
+  <g id="knight" class="nytkode-knight-mascot">
+
+    <!-- ======================================================== -->
+    <!-- 01. GROUND SHADOWS                                       -->
+    <!-- ======================================================== -->
+    <g id="shadows">
+      <!-- Main Ambient Base Shadow -->
+      <ellipse cx="405" cy="862" rx="275" ry="38" fill="#000000" fill-opacity="0.32" filter="url(#shadow-blur)" />
+      <!-- Left Boot Deep Contact Shadow -->
+      <ellipse cx="320" cy="862" rx="70" ry="18" fill="#000000" fill-opacity="0.75" filter="url(#shadow-blur)" />
+      <!-- Right Boot Deep Contact Shadow -->
+      <ellipse cx="495" cy="860" rx="75" ry="20" fill="#000000" fill-opacity="0.75" filter="url(#shadow-blur)" />
+      <!-- Sword Tip Floor Contact Shadow -->
+      <ellipse cx="140" cy="852" rx="35" ry="12" fill="#000000" fill-opacity="0.55" filter="url(#shadow-blur)" />
+      <!-- Shield Drop Shadow Base -->
+      <ellipse cx="585" cy="830" rx="65" ry="22" fill="#000000" fill-opacity="0.35" filter="url(#shadow-blur)" />
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- 02. CAPE (Rear Layer)                                    -->
+    <!-- ======================================================== -->
+    <g id="cape">
+      <!-- Left-side Rear Cape Fold -->
+      <path d="M 285 530 
+               C 235 600, 215 680, 240 765 
+               C 265 795, 315 805, 385 790 
+               C 420 730, 425 640, 420 540 Z" 
+            fill="#52070B" opacity="0.95" />
+      
+      <!-- Right Billowing Main Cape Drape -->
+      <path d="M 440 515 
+               C 515 515, 615 555, 680 620 
+               C 740 685, 755 760, 725 810 
+               C 690 828, 635 810, 595 765 
+               C 555 710, 530 620, 495 535 Z" 
+            fill="url(#red-cape-grad)" />
+
+      <!-- Deep Fold Shadow Channels -->
+      <path d="M 610 570 
+               C 660 630, 695 710, 685 785 
+               C 665 800, 635 790, 610 745 
+               C 575 695, 555 620, 545 560 Z" 
+            fill="#450508" opacity="0.85" />
+
+      <path d="M 505 540 
+               C 545 610, 560 680, 550 740 
+               C 535 750, 515 745, 500 710 
+               C 475 660, 465 600, 460 540 Z" 
+            fill="#3B0306" opacity="0.7" />
+
+      <!-- Vibrant Cape Edge Highlights -->
+      <path d="M 455 520 
+               C 530 530, 630 570, 690 635 
+               C 735 685, 750 750, 725 802" 
+            stroke="#FF385C" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.65" />
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- 03. LEGS & FEET                                          -->
+    <!-- ======================================================== -->
+    <g id="leg-left" class="leg-segment">
+      <!-- Upper Thigh Armor Plate -->
+      <path d="M 305 675 L 355 675 L 360 745 L 295 745 Z" fill="url(#armor-black-grad)" />
+      
+      <!-- Knee Protector (Beveled Silver Shield Cap) -->
+      <g id="knee-left">
+        <path d="M 285 735 C 285 718, 365 718, 365 735 L 360 765 C 360 782, 290 782, 290 765 Z" fill="url(#silver-bright)" stroke="#71717A" stroke-width="1.5" />
+        <ellipse cx="325" cy="748" rx="28" ry="14" fill="url(#silver-helm-dome)" />
+        <circle cx="325" cy="748" r="5.5" fill="url(#red-accent-core)" stroke="#FFFFFF" stroke-width="1" />
+      </g>
+
+      <!-- Shin Greave Plate -->
+      <path d="M 292 760 L 358 760 L 352 825 L 295 825 Z" fill="url(#armor-charcoal-plate)" stroke="#18181B" stroke-width="1" />
+      <!-- Metallic Front Ridge on Shin -->
+      <path d="M 322 760 L 328 760 L 326 825 L 323 825 Z" fill="url(#silver-bright)" />
+
+      <!-- Left Armored Boot -->
+      <g id="foot-left" class="foot-segment">
+        <!-- Heavy Sole Base -->
+        <path d="M 262 835 C 262 818, 378 812, 378 835 L 378 855 C 378 868, 258 868, 258 855 Z" fill="#111114" />
+        <!-- Boot Upper Shell -->
+        <path d="M 268 830 C 268 812, 372 808, 372 830 L 368 850 C 352 862, 272 862, 268 850 Z" fill="url(#silver-dark-bevel)" />
+        <!-- Metallic Rounded Toe Cap -->
+        <path d="M 258 842 C 258 825, 318 825, 322 842 L 320 858 C 300 866, 258 862, 258 842 Z" fill="url(#silver-sphere)" stroke="#71717A" stroke-width="1" />
+        <!-- Toe Highlight Rim -->
+        <path d="M 264 842 C 270 832, 308 832, 316 842" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.85" />
+      </g>
+    </g>
+
+    <g id="leg-right" class="leg-segment">
+      <!-- Upper Thigh Armor Plate (3/4 Perspective) -->
+      <path d="M 445 675 L 495 675 L 505 745 L 440 745 Z" fill="url(#armor-black-grad)" />
+      
+      <!-- Right Knee Protector -->
+      <g id="knee-right">
+        <path d="M 435 735 C 435 718, 515 718, 515 735 L 510 765 C 510 782, 440 782, 440 765 Z" fill="url(#silver-bright)" stroke="#71717A" stroke-width="1.5" />
+        <ellipse cx="475" cy="748" rx="28" ry="14" fill="url(#silver-helm-dome)" />
+        <circle cx="475" cy="748" r="5.5" fill="url(#red-accent-core)" stroke="#FFFFFF" stroke-width="1" />
+      </g>
+
+      <!-- Shin Greave Plate -->
+      <path d="M 442 760 L 508 760 L 515 825 L 448 825 Z" fill="url(#armor-charcoal-plate)" stroke="#18181B" stroke-width="1" />
+      <!-- Metallic Front Ridge on Shin -->
+      <path d="M 472 760 L 478 760 L 483 825 L 478 825 Z" fill="url(#silver-bright)" />
+
+      <!-- Right Armored Boot -->
+      <g id="foot-right" class="foot-segment">
+        <!-- Heavy Sole Base -->
+        <path d="M 432 835 C 432 815, 548 815, 552 835 L 552 855 C 552 868, 428 868, 428 855 Z" fill="#111114" />
+        <!-- Boot Upper Shell -->
+        <path d="M 438 830 C 438 810, 542 810, 548 830 L 542 850 C 525 862, 442 862, 438 850 Z" fill="url(#silver-dark-bevel)" />
+        <!-- Metallic Rounded Toe Cap -->
+        <path d="M 488 842 C 492 825, 548 825, 552 842 L 550 858 C 530 866, 488 862, 488 842 Z" fill="url(#silver-sphere)" stroke="#71717A" stroke-width="1" />
+        <!-- Toe Highlight Rim -->
+        <path d="M 498 842 C 505 832, 540 832, 548 842" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.85" />
+      </g>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- 04. BODY & TORSO                                         -->
+    <!-- ======================================================== -->
+    <g id="body">
+      <!-- Pelvis Base Plate -->
+      <path d="M 330 655 C 330 648, 480 648, 480 655 L 490 690 C 490 710, 320 710, 320 690 Z" fill="#18181D" />
+
+      <!-- Armored Belt / Fauld Layer -->
+      <g id="armor-belt">
+        <path d="M 325 638 C 325 630, 485 630, 485 638 L 482 668 C 482 676, 328 676, 328 668 Z" fill="url(#armor-charcoal-plate)" stroke="#3F3F46" stroke-width="1.5" />
+        <!-- Center Buckle Shell -->
+        <rect x="382" y="636" width="46" height="26" rx="5" fill="url(#silver-bright)" stroke="#52525B" stroke-width="1.5" />
+        <rect x="393" y="642" width="24" height="14" rx="3" fill="url(#red-accent-core)" />
+      </g>
+
+      <!-- Main Cuirass & Chestplate -->
+      <g id="torso">
+        <!-- Under-armor Chassis -->
+        <path d="M 310 500 C 310 488, 500 488, 500 500 L 485 645 C 485 650, 325 650, 325 645 Z" fill="url(#armor-black-grad)" />
+
+        <!-- Segmented Abdominal Armor Plates -->
+        <path d="M 334 594 C 365 588, 445 588, 476 594 L 473 614 C 445 610, 365 610, 337 614 Z" fill="#27272A" stroke="#18181B" stroke-width="1" />
+        <path d="M 337 617 C 365 612, 445 612, 473 617 L 471 635 C 445 631, 365 631, 339 635 Z" fill="#1F1F23" stroke="#18181B" stroke-width="1" />
+
+        <!-- Main Sculpted Chestplate (Cuirass) -->
+        <g id="chest-armor">
+          <path d="M 315 504 
+                   C 365 496, 445 496, 495 504 
+                   C 506 538, 492 585, 476 595 
+                   C 435 605, 375 605, 334 595 
+                   C 318 585, 304 538, 315 504 Z" 
+                fill="url(#armor-charcoal-plate)" stroke="#3F3F46" stroke-width="2" />
+
+          <!-- Specular Upper Bevel Highlight -->
+          <path d="M 324 514 C 370 506, 440 506, 486 514" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.45" />
+          <path d="M 338 590 C 380 598, 430 598, 472 590" stroke="#0B0B0F" stroke-width="2.5" fill="none" />
+
+          <!-- Chest Center Emblem: Metallic Silver Wings & NytKode Red Chevron -->
+          <g id="chest-emblem" transform="translate(405, 545)">
+            <!-- Outer Metallic Silver Wing Armor Bracket -->
+            <path d="M -38 -15 L -18 8 L 0 -4 L 18 8 L 38 -15 L 24 -15 L 14 -2 L 0 -12 L -14 -2 L -24 -15 Z" fill="url(#silver-bright)" stroke="#52525B" stroke-width="1.2" />
+            <!-- Inner Glowing Red Core Chevron -->
+            <path d="M -24 -10 L -14 3 L 0 -7 L 14 3 L 24 -10 L 16 -10 L 0 -1 L -16 -10 Z" fill="url(#red-accent-core)" />
+            <!-- Center Specular Dot -->
+            <circle cx="0" cy="-4" r="2.5" fill="#FFFFFF" opacity="0.9" />
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- 05. RIGHT ARM & SWORD (Viewer's Left)                    -->
+    <!-- ======================================================== -->
+    <g id="arm-right" class="arm-segment">
+      <!-- Right Shoulder Pauldron (Heavy Spherical Dome) -->
+      <g id="pauldron-right">
+        <path d="M 230 515 
+                 C 230 472, 315 468, 332 510 
+                 C 338 542, 322 578, 275 578 
+                 C 234 578, 230 545, 230 515 Z" 
+              fill="url(#armor-pauldron-sphere)" stroke="#3F3F46" stroke-width="2" />
+        <!-- Outer Metallic Silver Pauldron Bevel Rim -->
+        <path d="M 232 522 C 236 480, 312 476, 328 518" stroke="url(#silver-bright)" stroke-width="4.5" stroke-linecap="round" fill="none" />
+        <!-- Rivet Detail & Red Accent Stud -->
+        <circle cx="280" cy="528" r="8.5" fill="url(#red-accent-core)" stroke="#FFFFFF" stroke-width="1.5" />
+      </g>
+
+      <!-- Arm Guard / Bicep -->
+      <path d="M 245 550 C 240 580, 220 620, 235 645 L 265 635 C 275 605, 280 575, 275 550 Z" fill="url(#armor-black-grad)" />
+
+      <!-- Gauntlet Forearm -->
+      <path d="M 225 630 C 220 645, 225 665, 245 675 L 268 655 C 265 640, 255 625, 240 625 Z" fill="url(#silver-dark-bevel)" />
+
+      <!-- Right Hand (Grip) -->
+      <g id="hand-right">
+        <rect x="230" y="640" width="28" height="24" rx="10" fill="url(#armor-charcoal-plate)" stroke="#52525B" stroke-width="1.5" transform="rotate(-25 244 652)" />
+        <ellipse cx="242" cy="648" rx="8" ry="4" fill="#3F3F46" transform="rotate(-25 242 648)" />
+      </g>
+
+      <!-- ==================== SWORD ==================== -->
+      <g id="sword" transform="rotate(-32, 235, 660)">
+        <!-- Pommel (Weighted Faceted Sphere) -->
+        <circle cx="235" cy="570" r="11" fill="url(#silver-sphere)" stroke="#52525B" stroke-width="1.5" />
+        <circle cx="235" cy="570" r="4.5" fill="url(#red-accent-core)" />
+
+        <!-- Sword Grip / Handle -->
+        <rect x="230" y="580" width="10" height="62" rx="3" fill="#18181D" stroke="#27272A" stroke-width="1" />
+        <line x1="230" y1="592" x2="240" y2="592" stroke="#71717A" stroke-width="1.5" />
+        <line x1="230" y1="604" x2="240" y2="604" stroke="#71717A" stroke-width="1.5" />
+        <line x1="230" y1="616" x2="240" y2="616" stroke="#71717A" stroke-width="1.5" />
+        <line x1="230" y1="628" x2="240" y2="628" stroke="#71717A" stroke-width="1.5" />
+
+        <!-- Futuristic Crossguard -->
+        <path d="M 198 642 
+                 L 230 648 
+                 L 235 656 
+                 L 240 648 
+                 L 272 642 
+                 L 266 654 
+                 L 245 661 
+                 L 235 670 
+                 L 225 661 
+                 L 204 654 Z" 
+              fill="url(#silver-bright)" stroke="#3F3F46" stroke-width="1.5" />
+        <!-- Red Core Diamond in Crossguard -->
+        <polygon points="235,648 242,656 235,664 228,656" fill="url(#red-accent-core)" />
+
+        <!-- Blade Collar -->
+        <rect x="225" y="668" width="20" height="10" fill="#27272A" />
+
+        <!-- Futuristic Energy Blade -->
+        <!-- Red Glowing Energy Outer Bevel -->
+        <path d="M 218 678 
+                 L 222 882 
+                 L 235 910 
+                 L 248 882 
+                 L 252 678 Z" 
+              fill="url(#sword-energy-glow)" />
+
+        <!-- Inner Metallic Blade Face (Left Bevel) -->
+        <path d="M 223 678 
+                 L 226 876 
+                 L 235 898 
+                 L 235 678 Z" 
+              fill="url(#sword-blade-silver)" />
+
+        <!-- Inner Metallic Blade Face (Right Bevel - Shadowed) -->
+        <path d="M 235 678 
+                 L 235 898 
+                 L 244 876 
+                 L 247 678 Z" 
+              fill="url(#silver-dark-bevel)" />
+
+        <!-- Central Spine Highlight -->
+        <line x1="235" y1="678" x2="235" y2="894" stroke="#FFFFFF" stroke-width="1.8" opacity="0.9" />
+
+        <!-- Laser Energy Cutting Edge Highlights -->
+        <path d="M 218 680 L 222 880 L 235 908" stroke="#FF4D4D" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.95" />
+        <path d="M 252 680 L 248 880 L 235 908" stroke="#FF4D4D" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.95" />
+      </g>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- 06. HEAD & HELMET                                        -->
+    <!-- ======================================================== -->
+    <g id="head">
+      <!-- Neck Armor Ring -->
+      <path d="M 360 470 C 360 458, 460 458, 460 470 L 450 505 C 410 515, 390 515, 370 505 Z" fill="#18181D" stroke="#27272A" stroke-width="2" />
+
+      <!-- ==================== HELMET PLUME (Red Crest) ==================== -->
+      <g id="plume">
+        <!-- Rear Shadow Plume Silhouette -->
+        <path d="M 378 200 
+                 C 315 170, 305 95, 368 55 
+                 C 418 20, 492 35, 525 80 
+                 C 555 125, 530 182, 442 210 Z" 
+              fill="url(#red-plume-back)" />
+
+        <!-- Main Flowing Front Feather Plume Body -->
+        <path d="M 418 195 
+                 C 480 168, 545 138, 565 92 
+                 C 585 45, 532 15, 470 25 
+                 C 388 40, 338 105, 388 195 Z" 
+              fill="url(#red-plume-main)" />
+
+        <!-- Plume 3D Strands & Top Volumetric Specular Highlights -->
+        <path d="M 450 36 
+                 C 512 46, 550 88, 535 138 
+                 C 520 174, 468 196, 420 206" 
+              stroke="#FDA4AF" stroke-width="5.5" stroke-linecap="round" fill="none" opacity="0.75" />
+
+        <path d="M 398 62 
+                 C 448 72, 492 108, 482 154" 
+              stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.65" />
+
+        <!-- Plume Metallic Socket Base Fixture -->
+        <path d="M 384 188 C 384 178, 446 178, 446 188 L 440 215 C 415 220, 400 220, 390 215 Z" fill="url(#silver-bright)" stroke="#52525B" stroke-width="1.5" />
+        <ellipse cx="415" cy="190" rx="26" ry="8" fill="url(#silver-helm-dome)" />
+      </g>
+
+      <!-- ==================== HELMET DOME & ARMOR ==================== -->
+      <g id="helmet">
+        <!-- Main Sculpted Metallic Silver Helmet Dome -->
+        <path d="M 260 340 
+                 C 254 228, 334 184, 415 184 
+                 C 496 184, 576 228, 570 340 
+                 C 570 422, 535 480, 415 480 
+                 C 295 480, 260 422, 260 340 Z" 
+              fill="url(#silver-helm-dome)" stroke="#71717A" stroke-width="2" />
+
+        <!-- Volumetric Specular Highlight Curves on Dome -->
+        <path d="M 302 262 C 342 202, 478 202, 528 262" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" fill="none" opacity="0.8" />
+        <path d="M 328 242 C 365 212, 458 212, 498 242" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.95" />
+
+        <!-- Cheek Side Armor Plates -->
+        <path d="M 262 345 C 260 420, 295 470, 345 478 L 340 440 C 300 435, 280 395, 280 345 Z" fill="url(#silver-dark-bevel)" />
+        <path d="M 568 345 C 570 420, 535 470, 485 478 L 490 440 C 530 435, 550 395, 550 345 Z" fill="url(#silver-dark-bevel)" />
+
+        <!-- Left Cheek Vent Slits (3 Streamlined Vents) -->
+        <g id="vents-left" opacity="0.75">
+          <line x1="290" y1="415" x2="315" y2="425" stroke="#0B0B0F" stroke-width="3" stroke-linecap="round" />
+          <line x1="295" y1="428" x2="320" y2="438" stroke="#0B0B0F" stroke-width="3" stroke-linecap="round" />
+          <line x1="300" y1="441" x2="325" y2="451" stroke="#0B0B0F" stroke-width="3" stroke-linecap="round" />
+        </g>
+
+        <!-- Right Cheek Vent Slits -->
+        <g id="vents-right" opacity="0.75">
+          <line x1="540" y1="415" x2="515" y2="425" stroke="#0B0B0F" stroke-width="3" stroke-linecap="round" />
+          <line x1="535" y1="428" x2="510" y2="438" stroke="#0B0B0F" stroke-width="3" stroke-linecap="round" />
+          <line x1="530" y1="441" x2="505" y2="451" stroke="#0B0B0F" stroke-width="3" stroke-linecap="round" />
+        </g>
+
+        <!-- Forehead Brow Ridge Guard (Heavy Curved Visor Brow) -->
+        <path d="M 268 315 
+                 C 320 278, 510 278, 562 315 
+                 C 560 336, 530 340, 415 340 
+                 C 300 340, 270 336, 268 315 Z" 
+              fill="url(#silver-bright)" stroke="#52525B" stroke-width="1.5" />
+        <!-- Brow Highlight Edge -->
+        <path d="M 280 312 C 330 284, 500 284, 550 312" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.9" />
+
+        <!-- 3 Brow Rivet Accent Studs -->
+        <circle cx="340" cy="308" r="3.5" fill="url(#silver-sphere)" stroke="#52525B" stroke-width="1" />
+        <circle cx="415" cy="302" r="4" fill="url(#silver-sphere)" stroke="#52525B" stroke-width="1" />
+        <circle cx="490" cy="308" r="3.5" fill="url(#silver-sphere)" stroke="#52525B" stroke-width="1" />
+
+        <!-- ==================== VISOR (Face Screen) ==================== -->
+        <g id="visor">
+          <!-- Visor Recessed Frame -->
+          <path d="M 282 328 
+                   C 325 310, 505 310, 548 328 
+                   C 555 385, 535 440, 415 440 
+                   C 295 440, 275 385, 282 328 Z" 
+                fill="#050507" />
+
+          <!-- Deep Gloss Black Visor Glass Core -->
+          <path d="M 286 332 
+                   C 328 316, 502 316, 544 332 
+                   C 550 382, 530 435, 415 435 
+                   C 300 435, 280 382, 286 332 Z" 
+                fill="url(#visor-glass-depth)" />
+
+          <!-- Diagonal Glass Sheen Reflection -->
+          <path d="M 292 336 
+                   C 340 322, 450 320, 505 330 
+                   C 475 375, 385 415, 305 405 
+                   C 295 380, 290 355, 292 336 Z" 
+                fill="url(#visor-glare)" />
+
+          <!-- Ambient Bottom Rim Reflection -->
+          <path d="M 330 428 C 380 435, 450 435, 500 428" stroke="#3F3F46" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5" />
+
+          <!-- ==================== EYES (Expressive Digital HUD) ==================== -->
+          <!-- Default: Calm, Confident, Friendly Curved Arcs with Soft Glow -->
+          <g id="eyes" filter="url(#eye-glow-soft)">
+            <!-- Left Eye (Viewer's Left) -->
+            <path id="eye-left" 
+                  d="M 335 372 
+                     C 340 348, 375 348, 380 372 
+                     C 375 378, 340 378, 335 372 Z" 
+                  fill="#FFFFFF" />
+
+            <!-- Right Eye (Viewer's Right) -->
+            <path id="eye-right" 
+                  d="M 450 372 
+                     C 455 348, 490 348, 495 372 
+                     C 490 378, 455 378, 450 372 Z" 
+                  fill="#FFFFFF" />
+
+            <!-- Crisp Specular Eye Glint Points -->
+            <circle cx="357" cy="362" r="3.5" fill="#FFFFFF" />
+            <circle cx="472" cy="362" r="3.5" fill="#FFFFFF" />
+          </g>
+        </g>
+
+        <!-- ==================== EAR PODS / COMMUNICATORS ==================== -->
+        <!-- Right Ear Pod (Viewer's Right / 3/4 Prominent) -->
+        <g id="ear-pod-right">
+          <ellipse cx="560" cy="360" rx="22" ry="32" fill="url(#silver-bright)" stroke="#52525B" stroke-width="1.5" />
+          <!-- Vibrant Red Accent Recess Ring -->
+          <ellipse cx="562" cy="360" rx="16" ry="25" fill="url(#red-accent-core)" stroke="#991B1B" stroke-width="1" />
+          <!-- Inner Metallic Core Dome -->
+          <ellipse cx="564" cy="360" rx="10" ry="16" fill="url(#silver-sphere)" />
+          <circle cx="564" cy="360" r="3.5" fill="#FFFFFF" opacity="0.9" />
+        </g>
+
+        <!-- Left Ear Pod (Viewer's Left - Receding) -->
+        <g id="ear-pod-left">
+          <ellipse cx="265" cy="360" rx="14" ry="28" fill="url(#silver-dark-bevel)" stroke="#3F3F46" stroke-width="1" />
+          <ellipse cx="263" cy="360" rx="9" ry="20" fill="url(#red-accent-core)" />
+        </g>
+      </g>
+    </g>
+
+    <!-- ======================================================== -->
+    <!-- 07. LEFT ARM & SHIELD (Viewer's Right)                   -->
+    <!-- ======================================================== -->
+    <g id="arm-left" class="arm-segment">
+      <!-- Left Shoulder Pauldron -->
+      <g id="pauldron-left">
+        <path d="M 490 510 
+                 C 490 472, 575 472, 586 515 
+                 C 592 546, 576 582, 530 582 
+                 C 494 582, 490 546, 490 510 Z" 
+              fill="url(#armor-pauldron-sphere)" stroke="#3F3F46" stroke-width="2" />
+        <!-- Metallic Pauldron Rim -->
+        <path d="M 498 518 C 510 482, 572 482, 582 518" stroke="url(#silver-bright)" stroke-width="4.5" stroke-linecap="round" fill="none" />
+        <circle cx="540" cy="528" r="8.5" fill="url(#red-accent-core)" stroke="#FFFFFF" stroke-width="1.5" />
+      </g>
+
+      <!-- Arm Gauntlet Support -->
+      <path d="M 525 550 C 540 580, 560 620, 545 650 L 525 640 C 515 610, 510 575, 515 550 Z" fill="url(#armor-black-grad)" />
+
+      <!-- Left Hand (Holding Shield Inner Strap) -->
+      <g id="hand-left">
+        <ellipse cx="540" cy="635" rx="14" ry="10" fill="url(#armor-charcoal-plate)" stroke="#52525B" stroke-width="1.5" />
+      </g>
+
+      <!-- ==================== SHIELD ==================== -->
+      <g id="shield" filter="url(#shield-drop-shadow)" transform="translate(485, 458)">
+        <!-- Outer Metallic Silver Rim (Clean Beveled Frame) -->
+        <path id="shield-border" 
+              d="M 25 15 
+                 L 205 5 
+                 C 220 75, 230 165, 198 238 
+                 C 165 300, 118 344, 102 358 
+                 C 86 344, 38 300, 14 238 
+                 C -10 165, 2 75, 25 15 Z" 
+              fill="url(#shield-rim-silver)" stroke="#71717A" stroke-width="2" />
+
+        <!-- Inner Bevel Shadow Step -->
+        <path d="M 36 26 
+                 L 194 17 
+                 C 207 80, 216 158, 186 226 
+                 C 156 282, 114 322, 102 335 
+                 C 90 322, 48 282, 18 226 
+                 C -4 158, 5 80, 36 26 Z" 
+              fill="#09090C" />
+
+        <!-- Main Shield Body Face (Deep Black / Charcoal with Radial Depth) -->
+        <path id="shield-body" 
+              d="M 42 32 
+                 L 188 24 
+                 C 200 84, 208 154, 180 218 
+                 C 152 270, 112 308, 102 320 
+                 C 92 308, 52 270, 24 218 
+                 C 2 154, 12 84, 42 32 Z" 
+              fill="url(#shield-face-depth)" />
+
+        <!-- Shield Glass / Light Sheen Reflection -->
+        <path d="M 45 35 
+                 L 155 28 
+                 C 128 115, 85 210, 35 198 
+                 C 18 135, 26 82, 45 35 Z" 
+              fill="url(#visor-glare)" opacity="0.4" />
+
+        <!-- ======================================================== -->
+        <!-- ACTUAL OFFICIAL NYTKODE LOGO (Exact Geometry & Paths)     -->
+        <!-- Sourced directly from public/nytkode-white.svg / nytkode.svg -->
+        <!-- ======================================================== -->
+        <g id="official-nytkode-logo" transform="translate(102, 168) scale(0.40) translate(-240.5, -240.5)">
+          <!-- Foreground Katana Sword with drop shadow -->
+          <g filter="url(#shield-drop-shadow)">
+            <path d="M170.594 160.911L176.666 154.818L174.389 152.449L168.335 158.523C131.527 119.486 107.278 92.2109 101.113 85.5047C99.1427 83.4547 96.6542 85.1875 96.6542 85.1875C95.2289 86.6119 91.9162 89.6629 88.7263 92.6997C87.4475 93.9186 87.1203 95.3949 87.9982 96.3508C94.4783 103.401 157.122 169.771 157.122 169.771L149.878 177.038L152.155 179.408L159.423 172.115C216.347 230.201 260.059 282.185 358.094 368.081C369.294 377.891 386.006 371.48 386.006 371.48C299.876 294.673 222.972 216.379 170.594 160.911ZM94.5784 97.3461L96.0274 92.6844L100.661 91.4568L99.2155 96.1178L94.5784 97.3461ZM99.1999 102.327L100.65 97.6686L105.283 96.4409L103.838 101.102L99.1999 102.327ZM103.818 107.308L105.27 102.646L109.902 101.426L108.456 106.083L103.818 107.308ZM108.44 112.292L109.893 107.63L114.527 106.406L113.081 111.067L108.44 112.292ZM113.061 117.273L114.514 112.61L119.148 111.386L117.703 116.047L113.061 117.273ZM117.686 122.253L119.136 117.594L123.77 116.37L122.324 121.028L117.686 122.253ZM122.302 127.241L123.754 122.576L128.388 121.352L126.939 126.013L122.302 127.241ZM126.924 132.222L128.373 127.56L133.006 126.333L131.561 130.997L126.924 132.222ZM131.545 137.203L132.991 132.545L137.626 131.321L136.184 135.981L131.545 137.203ZM136.167 142.187L137.616 137.525L142.251 136.301L140.805 140.962L136.167 142.187ZM140.789 147.171L142.238 142.506L146.872 141.282L145.424 145.947L140.789 147.171ZM145.411 152.151L146.857 147.494L151.491 146.266L150.045 150.927L145.411 152.151ZM150.029 157.133L151.479 152.474L156.112 151.247L154.663 155.909L150.029 157.133ZM154.654 162.116L156.1 157.455L160.734 156.231L159.286 160.896L154.654 162.116Z" fill="url(#silver-bright)" />
+          </g>
+
+          <!-- Wordmark 'nytkode' with precision cut in pure crisp white -->
+          <path d="M102.945 268C102.262 268 101.92 267.658 101.92 266.975V214.372C101.92 213.689 102.262 213.347 102.945 213.347H126.233C126.889 213.347 127.436 213.566 127.873 214.003L136.073 222.203C136.538 222.668 136.77 223.214 136.77 223.843V266.975C136.77 267.658 136.428 268 135.745 268H124.142C123.459 268 123.117 267.658 123.117 266.975V224.253H115.573V266.975C115.573 267.658 115.231 268 114.548 268H102.945ZM158.412 281.653C157.728 281.653 157.387 281.311 157.387 280.628V274.232C157.387 273.713 157.592 273.412 158.002 273.33L164.029 271.813L168.252 269.558C168.662 269.339 168.867 268.916 168.867 268.287V261.563L165.054 265.13C164.589 265.595 164.042 265.827 163.414 265.827L156.444 266.073C155.815 266.073 155.268 265.854 154.804 265.417L147.301 257.873C146.836 257.436 146.604 256.889 146.604 256.233V223.925C146.604 223.242 146.945 222.9 147.629 222.9H158.576C159.259 222.9 159.601 223.242 159.601 223.925V254.798C159.601 255.7 159.765 256.329 160.093 256.684C160.421 257.039 161.022 257.217 161.897 257.217H167.104V223.925C167.104 223.242 167.445 222.9 168.129 222.9H179.076C179.759 222.9 180.101 223.242 180.101 223.925V273.207C180.101 274.027 179.868 274.574 179.404 274.847L173.951 278.332L167.022 281.202C166.612 281.366 166.297 281.475 166.079 281.53C165.887 281.612 165.573 281.653 165.136 281.653H158.412ZM199.116 268C198.487 268 197.94 267.768 197.476 267.303L190.629 260.497C190.191 260.032 189.973 259.486 189.973 258.857V232.453H188.251C187.567 232.453 187.226 232.111 187.226 231.428V223.925C187.226 223.242 187.567 222.9 188.251 222.9H189.973V217.775C189.973 217.092 190.314 216.75 190.998 216.75H201.904C202.587 216.75 202.929 217.092 202.929 217.775V222.9H206.906C207.589 222.9 207.931 223.242 207.931 223.925V231.428C207.931 232.111 207.589 232.453 206.906 232.453H202.929V254.347C202.929 254.866 203.093 255.29 203.421 255.618L207.439 259.677C207.712 259.923 207.849 260.333 207.849 260.907V266.975C207.849 267.658 207.507 268 206.824 268H199.116ZM216.336 268C215.652 268 215.311 267.658 215.311 266.975V214.372C215.311 213.689 215.652 213.347 216.336 213.347H227.939C228.622 213.347 228.964 213.689 228.964 214.372V236.102H234.048L236.754 225.893L239.214 213.88C239.268 213.716 239.391 213.593 239.583 213.511C239.801 213.402 240.116 213.347 240.526 213.347H252.334C253.017 213.347 253.359 213.689 253.359 214.372V219.497C253.359 219.798 253.318 220.098 253.236 220.399C253.154 220.672 253.085 220.918 253.031 221.137L248.029 233.15L244.544 239.71L248.111 246.188L254.138 259.882C254.247 260.073 254.329 260.278 254.384 260.497C254.438 260.716 254.466 261.03 254.466 261.44V266.975C254.466 267.658 254.124 268 253.441 268H241.223C241.031 268 240.785 267.973 240.485 267.918C240.211 267.836 240.047 267.658 239.993 267.385L236.959 254.388L234.704 246.967H228.964V266.975C228.964 267.658 228.622 268 227.939 268H216.336ZM272.887 268C272.258 268 271.711 267.768 271.247 267.303L263.047 259.103C262.582 258.666 262.35 258.119 262.35 257.463V233.437C262.35 232.781 262.582 232.234 263.047 231.797L271.247 223.597C271.711 223.132 272.258 222.9 272.887 222.9H285.31C285.966 222.9 286.512 223.132 286.95 223.597L295.15 231.797C295.614 232.234 295.847 232.781 295.847 233.437V257.463C295.847 258.119 295.614 258.666 295.15 259.103L286.95 267.303C286.512 267.768 285.966 268 285.31 268H272.887ZM277.684 258.447H280.554C281.428 258.447 282.03 258.269 282.358 257.914C282.686 257.559 282.85 256.93 282.85 256.028V234.872C282.85 233.97 282.686 233.341 282.358 232.986C282.03 232.631 281.428 232.453 280.554 232.453H277.684C276.782 232.453 276.167 232.631 275.839 232.986C275.511 233.341 275.347 233.97 275.347 234.872V256.028C275.347 256.93 275.511 257.559 275.839 257.914C276.167 258.269 276.782 258.447 277.684 258.447ZM315.649 268C315.02 268 314.473 267.768 314.009 267.303L305.809 259.103C305.344 258.666 305.112 258.119 305.112 257.463V233.437C305.112 232.781 305.344 232.234 305.809 231.797L314.009 223.597C314.473 223.132 315.02 222.9 315.649 222.9H321.922C322.578 222.9 323.124 223.132 323.562 223.597L325.612 225.647V214.372C325.612 213.689 325.953 213.347 326.637 213.347H337.584C338.267 213.347 338.609 213.689 338.609 214.372V266.975C338.609 267.658 338.267 268 337.584 268H329.056C328.7 268 328.427 267.932 328.236 267.795C328.072 267.658 327.88 267.494 327.662 267.303L325.612 265.253L323.562 267.303C323.124 267.768 322.578 268 321.922 268H315.649ZM320.446 258.447H323.316C324.19 258.447 324.792 258.269 325.12 257.914C325.448 257.559 325.612 256.93 325.612 256.028V232.453H320.446C319.544 232.453 318.929 232.631 318.601 232.986C318.273 233.341 318.109 233.97 318.109 234.872V256.028C318.109 256.93 318.273 257.559 318.601 257.914C318.929 258.269 319.544 258.447 320.446 258.447ZM366.528 268C366.255 268 365.954 267.959 365.626 267.877C365.326 267.795 365.039 267.727 364.765 267.672L357.467 265.868L349.103 263.08C348.283 262.807 347.873 262.014 347.873 260.702V233.437C347.873 232.781 348.106 232.234 348.57 231.797L356.77 223.597C357.235 223.132 357.782 222.9 358.41 222.9H371.53C372.159 222.9 372.706 223.132 373.17 223.597L381.37 231.797C381.835 232.234 382.067 232.781 382.067 233.437V250.247H360.05L359.763 255.7L365.585 257.627L376.04 258.365C376.505 258.447 376.737 258.761 376.737 259.308V266.975C376.737 267.658 376.396 268 375.712 268H366.528ZM364.888 243.81H365.667C367.007 243.81 368.073 243.304 368.865 242.293C369.685 241.282 370.095 239.915 370.095 238.193V237.373C370.095 235.678 369.685 234.325 368.865 233.314C368.073 232.303 367.007 231.797 365.667 231.797H364.847C363.535 231.797 362.483 232.303 361.69 233.314C360.925 234.325 360.542 235.678 360.542 237.373V238.193C360.542 239.915 360.925 241.282 361.69 242.293C362.483 243.304 363.549 243.81 364.888 243.81Z" fill="#FFFFFF" />
+
+          <!-- Accent Red highlight on the Katana blade hilt/grip accents -->
+          <circle cx="98" cy="94" r="5" fill="url(#red-accent-core)" />
+        </g>
+      </g>
+    </g>
+
+  </g>
+</svg>
