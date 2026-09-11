@@ -181,7 +181,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             >
               <li>
                 <Link
-                  href="/products#mega"
+                  href="/products/mega"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   MEGA
@@ -189,7 +189,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               </li>
               <li>
                 <Link
-                  href="/products#agency-operations-platform"
+                  href="/products/agency-operations-platform"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   Agency Operations Platform
@@ -197,7 +197,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               </li>
               <li>
                 <Link
-                  href="/products#acn"
+                  href="/products/acn"
                   className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
                 >
                   ACN - After Call Notify

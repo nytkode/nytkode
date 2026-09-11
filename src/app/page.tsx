@@ -9,7 +9,9 @@ import { WhatWeBuildSection } from "@/components/WhatWeBuildSection";
 import { MegaProductShowcase } from "@/components/MegaProductShowcase";
 import { CommunitySection } from "@/components/CommunitySection";
 import { HowWeWorkSection } from "@/components/HowWeWorkSection";
+import { FAQSection } from "@/components/FAQSection";
 import { FooterSection } from "@/components/FooterSection";
+import { HOME_FAQS, generateFaqSchema } from "@/data/faqs";
 
 export const metadata: Metadata = {
   title: "NytKode — Systems that generate more revenue in less time",
@@ -26,9 +28,17 @@ export const metadata: Metadata = {
   },
 };
 
+const homeFaqSchema = generateFaqSchema(HOME_FAQS, "https://nytkode.com");
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-black flex flex-col font-sans">
+      {/* FAQ Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
+      />
+
       {/* 1. Navigation */}
       <Navbar />
 
@@ -56,9 +66,18 @@ export default function HomePage() {
 
         {/* 8. How We Work — WHITE */}
         <HowWeWorkSection />
+
+        {/* 9. Frequently Asked Questions — WHITE */}
+        <FAQSection
+          items={HOME_FAQS}
+          theme="light"
+          title="Frequently Asked Questions"
+          subtitle="Direct answers to how we operate, who we build for, and how our systems scale revenue."
+          className="border-t border-neutral-100"
+        />
       </main>
 
-      {/* 9. Footer with Final CTA — BLACK */}
+      {/* 10. Footer with Final CTA — BLACK */}
       <FooterSection theme="dark" />
     </div>
   );

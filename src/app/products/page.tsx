@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { ProductsView } from "@/components/ProductsView";
+import { PRODUCTS_CATALOG_FAQS, generateFaqSchema } from "@/data/faqs";
 
 export const metadata: Metadata = {
   title: "Commercial & Open Source Products",
@@ -17,6 +18,19 @@ export const metadata: Metadata = {
   },
 };
 
+const productsFaqSchema = generateFaqSchema(
+  PRODUCTS_CATALOG_FAQS,
+  "https://nytkode.com/products"
+);
+
 export default function ProductsPage() {
-  return <ProductsView />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productsFaqSchema) }}
+      />
+      <ProductsView />
+    </>
+  );
 }
