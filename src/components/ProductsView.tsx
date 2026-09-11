@@ -199,10 +199,10 @@ export const ProductsView: React.FC = () => {
                     ].map((item) => (
                       <div
                         key={item.label}
-                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg transition-colors ${
+                        className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-default select-none ${
                           item.active
                             ? "bg-white/10 text-white font-semibold"
-                            : "text-neutral-400 hover:text-white hover:bg-white/5"
+                            : "text-neutral-400"
                         }`}
                       >
                         <span>{item.label}</span>
@@ -213,7 +213,7 @@ export const ProductsView: React.FC = () => {
                     ))}
                   </div>
 
-                  <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono">
+                  <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono cursor-default select-none">
                     <div className="text-neutral-400">Channel Ingestion:</div>
                     <div className="text-emerald-400 font-semibold flex items-center gap-1.5 mt-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -276,7 +276,7 @@ export const ProductsView: React.FC = () => {
                                 {msg.buttons.map((btn) => (
                                   <span
                                     key={btn}
-                                    className="px-2.5 py-1 rounded bg-neutral-100 text-neutral-900 font-semibold text-xs border border-neutral-300"
+                                    className="px-2.5 py-1 rounded bg-neutral-100 text-neutral-900 font-semibold text-xs border border-neutral-300 cursor-default select-none"
                                   >
                                     {btn}
                                   </span>

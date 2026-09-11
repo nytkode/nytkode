@@ -203,10 +203,10 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                   ].map((item) => (
                     <div
                       key={item.label}
-                      className={`flex items-center justify-between px-3 py-2.5 rounded-lg transition-colors ${
+                      className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-default select-none ${
                         item.active
                           ? "bg-white/10 text-white font-semibold"
-                          : "text-neutral-400 hover:text-white hover:bg-white/5"
+                          : "text-neutral-400"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -217,7 +217,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                   ))}
                 </div>
 
-                <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono">
+                <div className="p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-[11px] font-mono select-none cursor-default">
                   <div className="text-neutral-400">Channel Ingestion:</div>
                   <div className="text-emerald-400 font-semibold flex items-center gap-1.5 mt-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -230,7 +230,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
               <div className="md:col-span-9 flex flex-col justify-between p-4 sm:p-6 bg-black/40 h-full">
                 <div className="flex flex-col flex-1">
                   {/* Conversation Header — Mobile-responsive layout */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 mb-4 border-b border-neutral-800 shrink-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3.5 mb-4 border-b border-neutral-800 shrink-0 select-none">
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
                         <h4 className="font-bold text-white text-sm sm:text-base truncate">
@@ -271,7 +271,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                         }`}
                       >
                         <div
-                          className={`max-w-[85%] rounded-2xl text-xs sm:text-sm leading-relaxed overflow-hidden shadow-xs ${
+                          className={`max-w-[85%] rounded-2xl text-xs sm:text-sm leading-relaxed overflow-hidden shadow-xs select-none ${
                             msg.sender === "customer"
                               ? "bg-neutral-800 text-neutral-100 rounded-tl-xs p-3.5 border border-neutral-700/50"
                               : "bg-white text-neutral-950 font-medium rounded-tr-xs"
@@ -287,10 +287,10 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                               {msg.buttons.map((btn: string, bIdx: number) => (
                                 <div
                                   key={bIdx}
-                                  className={`flex-1 flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                                  className={`flex-1 flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold cursor-default select-none ${
                                     bIdx === 0
-                                      ? "bg-neutral-950 hover:bg-neutral-800 text-white shadow-xs"
-                                      : "bg-white hover:bg-neutral-50 text-neutral-800 border border-neutral-300/80 shadow-2xs"
+                                      ? "bg-neutral-950 text-white shadow-xs"
+                                      : "bg-white text-neutral-800 border border-neutral-300/80 shadow-2xs"
                                   }`}
                                 >
                                   <ReplyIcon className={`w-3.5 h-3.5 shrink-0 ${bIdx === 0 ? "text-white" : "text-neutral-500"}`} />
@@ -300,7 +300,7 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                             </div>
                           )}
                         </div>
-                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-500 mt-1 px-1">
+                        <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-500 mt-1 px-1 select-none">
                           {msg.isAutomated && (
                             <span className="text-emerald-400 font-medium">[MEGA AUTO]</span>
                           )}
@@ -312,24 +312,16 @@ export const MegaProductShowcase: React.FC<MegaProductShowcaseProps> = ({
                 </div>
 
                 {/* Message Composer Anchored at Bottom */}
-                <div className="pt-4 mt-4 border-t border-neutral-800 shrink-0">
+                <div className="pt-4 mt-4 border-t border-neutral-800 shrink-0 select-none">
                   <div className="flex items-center gap-2">
-                    <input
-                      type="text"
-                      readOnly
-                      value={
-                        humanTakeover
-                          ? "Staff typing live response..."
-                          : "Automated engine monitoring customer reply..."
-                      }
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 focus:outline-none font-mono"
-                    />
-                    <button
-                      onClick={() => openCalendly()}
-                      className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs font-mono shrink-0 hover:bg-neutral-200 transition-colors cursor-pointer"
-                    >
+                    <div className="w-full px-3.5 py-2.5 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-400 font-mono cursor-default select-none truncate">
+                      {humanTakeover
+                        ? "Staff typing live response..."
+                        : "Automated engine monitoring customer reply..."}
+                    </div>
+                    <div className="px-4 py-2.5 rounded-lg bg-white/10 text-neutral-400 font-semibold text-xs font-mono shrink-0 cursor-default select-none border border-white/5">
                       Send
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
