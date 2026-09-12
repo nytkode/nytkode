@@ -118,6 +118,16 @@ const jsonLd = {
           "https://www.instagram.com/visheshsachan21/"
         ]
       },
+      "legalName": "NytKode",
+      "taxID": "UDYAM-UP-43-0204143",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "178, Makhauli, Ghatampur",
+        "addressLocality": "Kanpur Nagar",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "209206",
+        "addressCountry": "IN"
+      },
       "description": "NytKode engineers custom operational software and automation workflows that help businesses win more customers, eliminate manual busywork, and scale revenue.",
       "contactPoint": {
         "@type": "ContactPoint",
@@ -152,6 +162,25 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8K30TVCSK3"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8K30TVCSK3');
+            `,
+          }}
+        />
+        {/* End Google Analytics */}
 
         {/* Google Tag Manager */}
         <Script

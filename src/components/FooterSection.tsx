@@ -53,7 +53,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16">
         {/* Top Content Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 pb-16 sm:pb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 pb-16 sm:pb-24">
           {/* Column 1: Brand Emblem & Social Media (Left 3 cols) */}
           <div className="lg:col-span-3 flex flex-col justify-start space-y-6">
             {/* Standard Canonical Logo */}
@@ -165,8 +165,8 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             </div>
           </div>
 
-          {/* Column 2: PRODUCTS (3 cols) */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Column 2: PRODUCTS (2 cols) */}
+          <div className="lg:col-span-2 space-y-5">
             <h4
               className={`font-mono text-xs font-bold uppercase tracking-widest ${
                 isLight ? "text-neutral-900" : "text-white"
@@ -214,8 +214,8 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             </ul>
           </div>
 
-          {/* Column 3: QUICK LINKS (3 cols) */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Column 3: QUICK LINKS (2 cols) */}
+          <div className="lg:col-span-2 space-y-5">
             <h4
               className={`font-mono text-xs font-bold uppercase tracking-widest ${
                 isLight ? "text-neutral-900" : "text-white"
@@ -260,14 +260,6 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                   Community
                 </Link>
               </li>
-              {/* <li>
-                <Link
-                  href="/blog"
-                  className={`${isLight ? "hover:text-black" : "hover:text-white"} transition-colors block`}
-                >
-                  Blog
-                </Link>
-              </li> */}
               <li>
                 <button
                   onClick={() => openCalendly()}
@@ -279,8 +271,8 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             </ul>
           </div>
 
-          {/* Column 4: CONTACT & INFO (3 cols) */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Column 4: CONTACT & INFO (5 cols for plenty of horizontal space) */}
+          <div className="lg:col-span-5 space-y-4">
             <h4
               className={`font-mono text-xs font-bold uppercase tracking-widest ${
                 isLight ? "text-neutral-900" : "text-white"
@@ -294,7 +286,30 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
               } leading-relaxed font-mono`}
             >
               <p>
-                Inquiries:{" "}
+                <span className={`font-semibold ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
+                  Head Office:{" "}
+                </span>
+                Kanpur Nagar, Uttar Pradesh
+              </p>
+
+              <p>
+                <span className={`font-semibold ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
+                  Registered Office:{" "}
+                </span>
+                178, Makhauli, Ghatampur, Kanpur Nagar, Uttar Pradesh 209206, India
+              </p>
+
+              <p>
+                <span className={`font-semibold ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
+                  Udyam Registration No:{" "}
+                </span>
+                <span className="whitespace-nowrap">UDYAM-UP-43-0204143</span>
+              </p>
+
+              <p className="pt-0.5">
+                <span className={`font-semibold ${isLight ? "text-neutral-900" : "text-neutral-200"}`}>
+                  Inquiries:{" "}
+                </span>
                 <a
                   href="mailto:vishesh@nytkode.com"
                   className={`${
@@ -305,12 +320,6 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                 >
                   vishesh@nytkode.com
                 </a>
-              </p>
-              <p className={`${isLight ? "text-neutral-600" : "text-neutral-400"} leading-normal`}>
-                Building systems that help businesses win more customers, save time, and get more done.
-              </p>
-              <p className={`${isLight ? "text-neutral-400" : "text-neutral-500"} pt-1`}>
-                India &bull; Global Operations
               </p>
             </div>
           </div>
