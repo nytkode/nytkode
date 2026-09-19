@@ -112,7 +112,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
         {/* Right: Action Buttons */}
         <div className="hidden md:flex flex-1 items-center justify-end gap-3">
           <a
-            href="https://wa.me/918127471282"
+            href="https://wa.me/918127471282?text=hi"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2.5">
           <a
-            href="https://wa.me/918127471282"
+            href="https://wa.me/918127471282?text=hi"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
@@ -200,7 +200,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTalkToUs, initialTheme = "ligh
             }`}
           >
             <a
-              href="https://wa.me/918127471282"
+              href="https://wa.me/918127471282?text=hi"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Chat on WhatsApp"
